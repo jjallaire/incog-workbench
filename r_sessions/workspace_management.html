@@ -209,7 +209,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -290,7 +290,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -704,7 +704,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -714,19 +714,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -755,6 +755,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -824,7 +830,7 @@ Important
 <p>You can also specify that R sessions should never be suspended by setting the <code>session-timeout-minutes</code> to zero. For example:</p>
 <p><em>/etc/rstudio/rsession.conf</em></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-minutes</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can also set session timeouts on a per-user or per-group basis, see the [User and Group Profiles] section for details.</p>
+<p>You can also set session timeouts on a per-user or per-group basis, see the <a href="../r_sessions/user_and_group_profiles.html">User and Group Profiles</a> section for details.</p>
 <p>If you simply want the session process to quit (and lose all unsaved work in the process) instead of suspending to disk, you can turn the <code>session-timeout-suspend</code> option off, like so:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-minutes</span><span class="ot">=</span><span class="dv">90</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-suspend</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -832,7 +838,7 @@ Important
 </section>
 <section id="forcing-suspends" class="level4">
 <h4 class="anchored" data-anchor-id="forcing-suspends">Forcing Suspends</h4>
-<p>You can force the suspend of individual sessions or even all sessions on the server. You can do this directly from the main page of the [Administrative Dashboard] or from the system shell as follows:</p>
+<p>You can force the suspend of individual sessions or even all sessions on the server. You can do this directly from the main page of the <a href="../server_management/administrative_dashboard.html">Administrative Dashboard</a> or from the system shell as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo rstudio-server force-suspend-session <span class="op">&lt;</span>pid<span class="op">&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo rstudio-server force-suspend-all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -877,7 +883,7 @@ Important
 <h3 class="anchored" data-anchor-id="user-state-storage">User State Storage</h3>
 <p>By default, RStudio stores each user’s state in their home directory, in the following folder:</p>
 <pre><code>~/.local/share/rstudio</code></pre>
-<p>This folder contains information on all of a user’s active RStudio sessions, including all of the session data when the session is suspended. It also includes various internal RStudio state. Deleting it will result in a factory-fresh RStudio experience for the user, with the exception of their per-user settings (which are described in [Customizing Session Settings]).</p>
+<p>This folder contains information on all of a user’s active RStudio sessions, including all of the session data when the session is suspended. It also includes various internal RStudio state. Deleting it will result in a factory-fresh RStudio experience for the user, with the exception of their per-user settings (which are described in <a href="customizing_session_settings.html">Customizing Session Settings</a>).</p>
 <p>Because this folder can include arbitrary amounts of suspended session data, it can become very large. We recommend ensuring that each user has sufficient disk space quota to store suspended sessions along with the data for their R projects, and using other controls to clean up old data (such as <code>session-timeout-kill-hours</code>)</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">

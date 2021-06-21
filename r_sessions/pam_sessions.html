@@ -209,7 +209,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -290,7 +290,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -704,7 +704,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -714,19 +714,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -755,6 +755,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -805,7 +811,7 @@ Note
 </div>
 </div>
 <p>The behavior that RStudio Workbench requires is essentially the same as that of the <code>su</code> command (impersonation of a user without a password). Therefore by default RStudio Workbench uses the <code>/etc/pam.d/su</code> profile for running R sessions.</p>
-<p>The session PAM profile itself is also run whenever the user accesses the home page. Regardless of where the session actually runs (such as on another machine if using [Job Launcher] sessions), the PAM profile is executed on the RStudio Workbench instance itself when opened via the home page.</p>
+<p>The session PAM profile itself is also run whenever the user accesses the home page. Regardless of where the session actually runs (such as on another machine if using <a href="../job_launcher/job_launcher.html">Job Launcher</a> sessions), the PAM profile is executed on the RStudio Workbench instance itself when opened via the home page.</p>
 <section id="creating-a-custom-profile" class="level4">
 <h4 class="anchored" data-anchor-id="creating-a-custom-profile">Creating a Custom Profile</h4>
 <p>The <code>/etc/pam.d/su</code> profile has different default behavior depending upon your version of Linux and local configuration. Depending upon what type of behavior you want associated with R sessions (e.g.&nbsp;mounting of disks, setting of environment variables, enforcing of resource limits, etc.) you’ll likely want to create a custom profile for R sessions. For example, if you wanted to use a profile named <code>rstudio-session</code> you would add this to the configuration file:</p>
@@ -850,7 +856,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This setting is only available when using [PAM authentication].</p>
+<p>This setting is only available when using <a href="../authenticating_users/pam_authentication.html">PAM authentication</a>.</p>
 </div>
 </div>
 <p>In this scenario you should remove the <code>auth sufficient pam_rootok.so</code> directive and replace it with whatever authentication directives apply in your environment. You can then employ the <code>use_first_pass</code> directive to forward the password as necessary to other modules.</p>
@@ -896,17 +902,17 @@ Note
 <p>By default, RStudio Workbench does not close PAM sessions when their associated R process exits. This is because PAM sessions often initialize and maintain resources that require more persistence that the lifetime of a single R session (e.g.&nbsp;mounted drives, Kerberos tickets, etc.). If a user has multiple active R sessions then closing the PAM session associated with one of them might unmount a drive or revoke a ticket that is still required by another R session.</p>
 <p>It is however possible to manually close the PAM session associated with an R session by force suspending it. This can be accomplished in one of two ways:</p>
 <ul>
-<li><p>By pressing the <strong>Suspend</strong> button on the <em>Sessions</em> page of the [Administrative Dashboard].</p></li>
-<li><p>By executing a <code>force-suspend</code> or <code>force-suspend-all</code> command as described in [Suspending Sessions].</p></li>
+<li><p>By pressing the <strong>Suspend</strong> button on the <em>Sessions</em> page of the <a href="../server_management/administrative_dashboard.html">Administrative Dashboard</a>.</p></li>
+<li><p>By executing a <code>force-suspend</code> or <code>force-suspend-all</code> command as described in <a href="../server_management/core_administrative_tasks.html#suspending-sessions">Suspending Sessions</a>.</p></li>
 </ul>
 <p>If you prefer that PAM sessions be closed whenever their associated R session exits you can use the <code>auth-pam-sessions-close</code> setting. For example:</p>
 <p><em>/etc/rstudio/rserver.conf</em></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-pam-sessions-close</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Note that if you specify this setting be aware that depending upon what resources are managed by your PAM sessions it may be incompatible with users running multiple concurrent R sessions (because for example a drive might be unmounted from underneath a running session). In this case you may wish to disable support for multiple R sessions (see the section on [Multiple R Sessions] for details on how to do this).</p>
+<p>Note that if you specify this setting be aware that depending upon what resources are managed by your PAM sessions it may be incompatible with users running multiple concurrent R sessions (because for example a drive might be unmounted from underneath a running session). In this case you may wish to disable support for multiple R sessions (see the section on <a href="../r_sessions/multiple_r_sessions.html">Multiple R Sessions</a> for details on how to do this).</p>
 </section>
 <section id="pam-sessions-with-the-job-launcher" class="level3">
 <h3 class="anchored" data-anchor-id="pam-sessions-with-the-job-launcher">PAM Sessions with the Job Launcher</h3>
-<p>When launching sessions via the [Job Launcher], you must also configure PAM on any Launcher nodes (for Local or Slurm plugins) and within any containers used (if using Kubernetes). That’s because PAM sessions are needed at the point where the R session is run, which for Launcher means some machine/container other than the one where RStudio Workbench is running. The PAM configuration is still required at the RStudio Workbench machine for authentication purposes.</p>
+<p>When launching sessions via the <a href="../job_launcher/job_launcher.html">Job Launcher</a>, you must also configure PAM on any Launcher nodes (for Local or Slurm plugins) and within any containers used (if using Kubernetes). That’s because PAM sessions are needed at the point where the R session is run, which for Launcher means some machine/container other than the one where RStudio Workbench is running. The PAM configuration is still required at the RStudio Workbench machine for authentication purposes.</p>
 <p>Launcher session PAM profiles run with different permissions at different stages of the session launch pipeline. When a user visits the RStudio home page for the first time, their PAM session is initiated with root privilege, allowing the session to rely on <code>pam_rootok.so</code>, as discussed in the previous sections, and it is opened on the RStudio Workbench instance itself. However, Job Launcher sessions themselves <em>never</em> have true root privilege (unlike traditional session launches which have <code>root</code> privileges during early initialization), and thus cannot rely on <code>pam_rootok.so</code>. Their PAM sessions are opened on the actual instance where the session is running (e.g.&nbsp;a Kubernetes or Slurm node).</p>
 <p>It is generally sufficient to simply do all your necessary setup, such as user directory creation, whenever the user accesses the home page for the first time. This means that you can rely on <code>pam_rootok.so</code> and do not need password forwarding. However, if you need to also ensure that PAM sessions are created when actual sessions are started (e.g., for Kerberos or <code>pam_mount</code>), you will need to enable <code>auth-pam-sessions-use-password</code> to forward the user’s PAM credentials to the session.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -922,7 +928,7 @@ Note
 <p>When Kerberos or LDAP/Active Diretory are required for PAM sessions, individual Launcher nodes or Kubernetes containers will have to either join the Kerberos domain or be configured to use <code>sssd</code> for obtaining LDAP/AD users and groups.</p>
 </div>
 </div>
-<p>When forwarding credentials over a TCP connection, we require that Job Launcher connections be secured with SSL to prevent leaking of the credentials. Therefore, if <code>auth-pam-sessions-use-password</code> is set for Launcher sessions, you will also need to set <code>launcher-use-ssl</code> and configure the Job Launcher to use SSL (see the Job Launcher [SSL Considerations] section for more info).</p>
+<p>When forwarding credentials over a TCP connection, we require that Job Launcher connections be secured with SSL to prevent leaking of the credentials. Therefore, if <code>auth-pam-sessions-use-password</code> is set for Launcher sessions, you will also need to set <code>launcher-use-ssl</code> and configure the Job Launcher to use SSL (see the Job Launcher <a href="../job_launcher/configuration.html#ssl-considerations">SSL Considerations</a> section for more info).</p>
 <p>The following sample configuration demonstrates forwarding of PAM user credentials to Job Launcher sessions. This is only recommended if it is absolutely necessary to start PAM sessions whenever Launcher sessions are started, and it is not sufficient to simply start a PAM session whenever the user accesses the homepage for the first time:</p>
 <p><em>/etc/rstudio/rserver.conf</em></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">launcher-sessions-enabled</span><span class="ot">=</span><span class="dv">1</span></span>

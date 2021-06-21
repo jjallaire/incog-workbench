@@ -85,7 +85,7 @@
   <script src="../site_libs/quarto-search/autocomplete.min.js"></script>
   <script src="../site_libs/quarto-search/fuse.min.js"></script>
   <script src="../site_libs/quarto-search/quarto-search.js"></script>
-  <link href="../access_and_security/access-and-security.qmd" rel="next">
+  <link href="../access_and_security/access_and_security.html" rel="next">
   <link href="../authenticating_users/customizing_signin.html" rel="prev">
   <script src="../site_libs/quarto-html/quarto.js"></script>
   <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -209,7 +209,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -290,7 +290,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -704,7 +704,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -714,19 +714,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -755,6 +755,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -782,7 +788,7 @@
 <h3 class="anchored" data-anchor-id="inactivity-timeout">Inactivity Timeout</h3>
 <p>By default, user authorization will expire after 60 minutes of inactivity, requiring the user to sign in again to continue using their sessions. This is configurable by changing the <code>auth-timeout-minutes</code> setting in <em>/etc/rstudio/rserver.conf</em>. For example, to sign users out after 20 minutes of inactivity instead:</p>
 <p><em>/etc/rstudio/rserver.conf</em></p>
-<pre><code>auth-timeout-minutes=20</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-timeout-minutes</span><span class="ot">=</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This setting supersedes the <code>auth-stay-signed-in-days</code> setting discussed below in <a href="#stay-signed-in">Stay Signed In</a>, as it provides additional security by ensuring that users that are not actively using the system do not stay signed in. However, if you wish to allow users to stay signed in for many days at a time and disable the authorization timeout completely, set <code>auth-timeout-minutes</code> to 0, which will cause the <code>auth-stay-signed-in-days</code> setting’s behavior to be used instead.</p>
 <p>Whenever a user is signed out, the database will be updated to store recently logged out/invalidated cookies, preventing the use of credential replay attacks.</p>
 </section>
@@ -820,7 +826,7 @@ Warning
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../access_and_security/access-and-security.qmd">
+      <a href="../access_and_security/access_and_security.html">
         <span class="nav-page-text">Access and Security</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

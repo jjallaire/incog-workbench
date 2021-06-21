@@ -146,7 +146,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -227,7 +227,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -641,7 +641,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -651,19 +651,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -692,6 +692,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -713,7 +719,7 @@
 <h2 class="anchored" data-anchor-id="compatibility-with-safari-13">Compatibility with Safari 13+</h2>
 <p>Starting in Safari 13, if you are loading RStudio inside a browser frame on a completely different domain all cookies will be blocked because those will be considered third-party cookies.</p>
 <p>Embedding RStudio in a subdomain of the main site causes its cookies to be considered first-party, allowing RStudio to work.</p>
-<p>Alternatively, you can place RStudio in the same domain as the main wrapping site but under a different URL path. This requires using a proxy in front of both the main site and RStudio. See [Running with a Proxy] below for more information.</p>
+<p>Alternatively, you can place RStudio in the same domain as the main wrapping site but under a different URL path. This requires using a proxy in front of both the main site and RStudio. See <a href="../access_and_security/running_with_a_proxy.html">Running with a Proxy</a> below for more information.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

@@ -209,7 +209,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -290,7 +290,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -704,7 +704,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -714,19 +714,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -755,6 +755,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -816,24 +822,24 @@
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/health-check&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or a <a href="https://prometheus.io/docs/introduction/overview/">Prometheus</a> endpoint. Prometheus is an open-source systems monitoring and alerting toolkit with a custom input format:</p>
 <p><em>/etc/rstudio/health-check</em></p>
-<pre><code># HELP active_sessions health_check metric Active RStudio sessions
-# TYPE active_sessions gauge
-active_sessions #active-sessions#
-# HELP idle_seconds health_check metric Time since active RStudio sessions
-# TYPE idle_seconds gauge
-idle_seconds #idle-seconds#
-# HELP cpu_percent health_check metric cpu (percentage)
-# TYPE cpu_percent gauge
-cpu_percent #cpu-percent#
-# HELP memory_percent health_check metric memory used (percentage)
-# TYPE memory_percent gauge
-memory_percent #memory-percent#
-# HELP swap_percent health_check metric swap used (percentage)
-# TYPE swap_percent gauge
-swap_percent #swap-percent#
-# HELP load_average health_check metric cpu load average
-# TYPE load_average gauge
-load_average #load-average#</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># HELP active_sessions health_check metric Active RStudio sessions</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># TYPE active_sessions gauge</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">active_sessions</span> <span class="co">#active-sessions#</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># HELP idle_seconds health_check metric Time since active RStudio sessions</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># TYPE idle_seconds gauge</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ex">idle_seconds</span> <span class="co">#idle-seconds#</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># HELP cpu_percent health_check metric cpu (percentage)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># TYPE cpu_percent gauge</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">cpu_percent</span> <span class="co">#cpu-percent#</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># HELP memory_percent health_check metric memory used (percentage)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># TYPE memory_percent gauge</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ex">memory_percent</span> <span class="co">#memory-percent#</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># HELP swap_percent health_check metric swap used (percentage)</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># TYPE swap_percent gauge</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="ex">swap_percent</span> <span class="co">#swap-percent#</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># HELP load_average health_check metric cpu load average</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># TYPE load_average gauge</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="ex">load_average</span> <span class="co">#load-average#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="changing-the-url" class="level3">
 <h3 class="anchored" data-anchor-id="changing-the-url">Changing the URL</h3>

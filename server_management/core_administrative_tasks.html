@@ -86,7 +86,7 @@
   <script src="../site_libs/quarto-search/fuse.min.js"></script>
   <script src="../site_libs/quarto-search/quarto-search.js"></script>
   <link href="../server_management/logging.html" rel="next">
-  <link href="../server_management/server-management.qmd" rel="prev">
+  <link href="../server_management/server_management.html" rel="prev">
   <script src="../site_libs/quarto-html/quarto.js"></script>
   <script src="../site_libs/quarto-html/popper.min.js"></script>
   <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -209,7 +209,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -290,7 +290,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -704,7 +704,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -714,19 +714,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -755,6 +755,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -949,7 +955,7 @@
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Store user data on mounted external storage</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="dt">XDG_DATA_HOME</span><span class="ot">=</span><span class="st">/mnt/storage/$USER</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The <code>env-vars</code> file is reloaded, and the environment variables set again, when the server process receives a <code>SIGHUP</code> signal. See [Reloading Configuration] for an example.</p>
+<p>The <code>env-vars</code> file is reloaded, and the environment variables set again, when the server process receives a <code>SIGHUP</code> signal. See <a href="../r_versions/using_multiple_versions_of_r.html#reloading-configuration">Reloading Configuration</a> for an example.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -999,12 +1005,12 @@ Note
 <p>Alternately, you can send a <code>SIGHUP</code> to the <code>rserver</code> process, using a command like <code>kill -s SIGHUP $PID</code>, where <code>$PID</code> is the process ID of the <code>rserver</code> process.</p>
 <p>Note that most configuration values cannot be applied without a full restart. The following are the values and settings that will be reloaded when you send <code>SIGHUP</code> or execute the <code>reload</code> command:</p>
 <ol type="1">
-<li><strong>Logging configuration</strong> (<code>logging.conf</code>), as described in [Logging].</li>
+<li><strong>Logging configuration</strong> (<code>logging.conf</code>), as described in <a href="../server_management/logging.html">Logging</a>.</li>
 <li><strong>Environment variables</strong> (<code>env-vars</code>), as described in <a href="#setting-environment-variables">Setting Environment Variables</a>.</li>
-<li><strong>Load balancing settings</strong> (<code>load-balancer</code>), as described in [Load Balancing].</li>
-<li><strong>nginx configuration</strong> (<code>nginx.*.conf</code>), as described in [Customizing Default Proxy].</li>
-<li><strong>Custom R version settings</strong> (<code>r-versions</code>), as described in [Extended R Version Definitions].</li>
-<li><strong>Product license data</strong>, as described in [License Management].</li>
+<li><strong>Load balancing settings</strong> (<code>load-balancer</code>), as described in <a href="../job_launcher/load_balancing.html">Load Balancing</a>.</li>
+<li><strong>nginx configuration</strong> (<code>nginx.*.conf</code>), as described in <a href="../access_and_security/running_with_a_proxy.html#customizing-default-proxy">Customizing Default Proxy</a>.</li>
+<li><strong>Custom R version settings</strong> (<code>r-versions</code>), as described in <a href="../r_versions/using_multiple_versions_of_r.html#extended-r-version-definitions">Extended R Version Definitions</a>.</li>
+<li><strong>Product license data</strong>, as described in <a href="../license_management/license_management.html">License Management</a>.</li>
 </ol>
 </section>
 <section id="managing-active-sessions" class="level3">
@@ -1054,7 +1060,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Users set as administrators in this way will be <code>Admin Superusers</code>. See [Administrator Superusers].</p>
+<p>Users set as administrators in this way will be <code>Admin Superusers</code>. See <a href="../server_management/administrative_dashboard.html#administrator-superusers">Administrator Superusers</a>.</p>
 </div>
 </div>
 </section>
@@ -1102,7 +1108,7 @@ Note
 </main>
 <div class="page-navigation page-navigation-docked">
   <div class="nav-page nav-page-previous">
-      <a href="../server_management/server-management.qmd">
+      <a href="../server_management/server_management.html">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Server Management</span>
       </a>          
   </div>

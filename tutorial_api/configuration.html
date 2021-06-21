@@ -288,7 +288,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -369,7 +369,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -783,7 +783,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -793,19 +793,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -834,6 +834,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -864,13 +870,13 @@
 <p>This section describes how to configure the example page, shown below. The upper-region has controls for experimenting with the Tutorial API calls, and the lower region is an <code>&lt;iframe&gt;</code> hosting RStudio Workbench.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/TutorialAPIDemo.png" class="img-fluid figure-img"></p>
+<p><img src="../images/TutorialAPIDemo.png" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Example Page</figcaption><p></p>
 </figure>
 </div>
 <section id="allow-iframe" class="level3">
 <h3 class="anchored" data-anchor-id="allow-iframe">Allow IFrame</h3>
-<p>For security reasons, RStudio will not load inside a browser frame (such as an IFrame) by default. You can modify this behavior by using the <code>www-frame-origin</code> option. See [Frame Origin] for full details.</p>
+<p>For security reasons, RStudio will not load inside a browser frame (such as an IFrame) by default. You can modify this behavior by using the <code>www-frame-origin</code> option. See <a href="../access_and_security/frame_origin.html">Frame Origin</a> for full details.</p>
 <p>To enable the Tutorial API example page to host RStudio Workbench on a <strong>non-production localhost server</strong>, do the following:</p>
 <p><em>/etc/rstudio/rserver.conf</em></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-frame-origin</span><span class="ot">=</span><span class="st">http://</span><span class="kw">localhost</span><span class="st">:</span><span class="dv">8080</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -899,7 +905,7 @@ Note
 <section id="enable-callbacks-from-rstudio-to-host-page" class="level3">
 <h3 class="anchored" data-anchor-id="enable-callbacks-from-rstudio-to-host-page">Enable Callbacks from RStudio to Host Page</h3>
 <p>RStudio may optionally notify the hosting page of certain events using the JavaScript PostMessage mechanism.</p>
-<p>The receiver is responsible for parsing, interpreting, and reacting to the value of the callbacks. Any JavaScript running in the context of the IDE IFrame could do an arbitrary SendMessage to the parent (in addition to those being generated by the RStudio IDE JavaScript). The host page should ensure the response string is valid JSON, and follows one of the patterns described in [Tutorial API Callbacks].</p>
+<p>The receiver is responsible for parsing, interpreting, and reacting to the value of the callbacks. Any JavaScript running in the context of the IDE IFrame could do an arbitrary SendMessage to the parent (in addition to those being generated by the RStudio IDE JavaScript). The host page should ensure the response string is valid JSON, and follows one of the patterns described in <a href="../tutorial_api/tutorial_api_callbacks.html">Tutorial API Callbacks</a>.</p>
 <p>To enable callbacks:</p>
 <p><em>/etc/rstudio/rsession.conf</em></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">tutorial-api-parent-notify-enabled</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -946,7 +952,7 @@ Note
 <section id="serve-the-example-page" class="level3">
 <h3 class="anchored" data-anchor-id="serve-the-example-page">Serve the Example Page</h3>
 <p>Serve the folder <code>/usr/lib/rstudio-server/extras/tutorial</code> with a web server. For example, change to that directory in a terminal and run this command:</p>
-<p><code>python -m SimpleHTTPServer 8080</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> SimpleHTTPServer 8080</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Load <a href="http://localhost:8080/demo.htm" class="uri">http://localhost:8080/demo.htm</a> in a web browser and you should see the page shown earlier.</p>
 <!-- -->
 </section>

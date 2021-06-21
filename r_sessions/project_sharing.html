@@ -209,7 +209,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -290,7 +290,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -704,7 +704,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -714,19 +714,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -755,6 +755,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -810,7 +816,7 @@
 <section id="determining-nfs-version" class="level5">
 <h5 class="anchored" data-anchor-id="determining-nfs-version">Determining NFS Version</h5>
 <p>Project Sharing works with versions 3 and 4 of the NFS protocol. However, some additional configuration may be necessary depending on the NFS version and underlying filesystem. To determine your NFS client version, run the following command on your RStudio Workbench instance:</p>
-<pre><code>$ nfsstat -m</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> nfsstat <span class="at">-m</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should see <code>vers=3.0</code> in the output if you’re using NFSv3, and <code>vers=4.0</code> if you’re using NFSv4. Extra RStudio configuration is required for NFSv4 clients (see below).</p>
 </section>
 <section id="nfsv3" class="level5">
@@ -819,7 +825,7 @@
 <p>Note that many Linux distributions now have ACLs enabled by default in which case no special configuration is required. You can use the <code>tune2fs</code> command to inspect the attributes with which your filesystem is mounted (<code>user_xattr</code> and <code>acl</code> are required for project sharing).</p>
 <p>On most systems this is the default, so you need only ensure that <code>noacl</code> is not present. It’s also necessary for the file system on the NFS server to itself be appropriately configured for ACL support; see the section above on Access Control Lists for guidance. Not all file servers that support the NFSv3 protocol also support POSIX compatible ACLs.</p>
 <p>To test for POSIX compatible ACLs, you can use the <code>setfacl</code> command as follows:</p>
-<pre><code>setfacl -m u:user2:x /home/user1/project</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">setfacl</span> <span class="at">-m</span> u:user2:x /home/user1/project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>where <code>/home/user1/project</code> is the full path to a directory owned by <code>user1</code>, and <code>user2</code> is another valid user on the system.</p>
 <p>Because many Linux systems support POSIX compatible ACLs on the native filesystem, RStudio uses them by default. You can also specify them explicitly as follows:</p>
 <p><em>/etc/rstudio/rsession.conf</em></p>
@@ -830,9 +836,9 @@
 <p>Version 4 of the NFS protocol uses a very different permissions and ACL model from Version 3. Not all NFSv4 servers support or expose the NFSv4 ACL model, so check with the server administrator to determine whether the capability exists and/or can be enabled.</p>
 <p><strong>Testing for support</strong></p>
 <p>To test NFSv4 ACL support, you can use the <code>nfs4_setfacl</code> command as follows:</p>
-<pre><code>nfs4_setfacl -a A::user2@domain:rax /home/user1/project</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nfs4_setfacl</span> <span class="at">-a</span> A::user2@domain:rax /home/user1/project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>where <code>/home/user1/project</code> is the full path to a directory owned by <code>user1</code>, <code>user2</code> is another valid user on the system, and <code>domain</code> is your system’s user domain. Verify that this command succeeds, and that the new ACL entry for <code>user2@domain</code> is visible when you retrieve it:</p>
-<pre><code>nfs4_getfacl /home/user1/project</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nfs4_getfacl</span> /home/user1/project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This presumes that your environment supports using user/domain pairs as security principals. While most environments do, there are two different ways to specify security principals in NFSv4 ACLs: by <strong>user name and domain</strong> (preferred) or <strong>user ID</strong>. RStudio can use either, but you’ll need to choose one appropriate for your network environment. If unsure, examine the output of the <code>nfs4_getfacl</code> operation described above. The security principal (the part after e.g., <code>A::</code> on each line) will be displayed as either a large integer (UID) or in <code>username@domain</code> format.</p>
 <p><strong>Using user name and domain security principals</strong></p>
 <p>NFSv4 ACLs differ from NFSv3 ACLs in that they can associate a <em>domain</em> with each user named in the access control list. This is typically the same as the domain part of the machine’s host name, but can be any string that the NFSv4 client and server agree on. On Linux systems, the domain can be set in <code>/etc/idmapd.conf</code>.</p>
@@ -862,19 +868,19 @@
 <section id="shared-storage" class="level4">
 <h4 class="anchored" data-anchor-id="shared-storage">Shared Storage</h4>
 <p>To use Project Sharing, a directory must be specified to which all users on the server can read and write. It must also have the <a href="https://en.wikipedia.org/wiki/Sticky_bit">sticky bit</a> set, so that users cannot remove each others’ content. In a single-server installation, RStudio uses this location by default:</p>
-<pre><code>/var/lib/rstudio-server/shared-storage</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/var/lib/rstudio-server/shared-storage</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In a load-balanced configuration, however, RStudio does not provide a default, so it is necessary to provision a path both visible to and writable by all users on the system (typically on the same filesystem on which home directories are mounted). This path can be supplied to RStudio Workbench via the <code>server-shared-storage-path</code> option, for example:</p>
 <p><em>/etc/rstudio/rserver.conf</em></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">server-shared-storage-path</span><span class="ot">=</span><span class="st">/shared/rstudio-server/shared-storage</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>server-shared-storage-path</code> option (described above) configures the path used for shared project storage. Note that this storage contains only <em>links</em> to shared projects, not the projects themselves, so requires a very small amount of physical storage.</p>
 <section id="launcher-considerations" class="level5">
 <h5 class="anchored" data-anchor-id="launcher-considerations">Launcher Considerations</h5>
-<p>When configuring RStudio Workbench to work with the RStudio Job Launcher, it is recommended to configure the <a href="#shared-storage">Shared Storage</a> path in a location that will be reachable both by the RStudio Workbench instance and each Launcher Session. See the [Launcher Sessions] section for more details.</p>
+<p>When configuring RStudio Workbench to work with the RStudio Job Launcher, it is recommended to configure the <a href="#shared-storage">Shared Storage</a> path in a location that will be reachable both by the RStudio Workbench instance and each Launcher Session. See the <a href="../job_launcher/configuration.html#launcher-sessions">Launcher Sessions</a> section for more details.</p>
 </section>
 </section>
 <section id="proxy-settings" class="level4">
 <h4 class="anchored" data-anchor-id="proxy-settings">Proxy Settings</h4>
-<p>If you are running RStudio Workbench with a proxy, you’ll need to make sure that your proxy is correctly configured to pass websocket connections through in order for all Project Sharing features to work. See the [Running with a Proxy] section for more on this.</p>
+<p>If you are running RStudio Workbench with a proxy, you’ll need to make sure that your proxy is correctly configured to pass websocket connections through in order for all Project Sharing features to work. See the <a href="../access_and_security/running_with_a_proxy.html">Running with a Proxy</a> section for more on this.</p>
 </section>
 </section>
 <section id="disabling-project-sharing" class="level3">

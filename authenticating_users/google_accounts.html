@@ -288,7 +288,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -369,7 +369,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -783,7 +783,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -793,19 +793,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -834,6 +834,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -880,14 +886,14 @@ Note
 <p>Once you’ve created a project you go to the <em>Credentials</em> area of <em>APIs and auth</em> and choose to <strong>Create New Client ID</strong>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/CreateClientID.png" class="img-fluid figure-img"></p>
+<p><img src="../images/CreateClientID.png" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Create Client Id</figcaption><p></p>
 </figure>
 </div>
 <p>You’ll then be presented with a dialog used to create a new client ID:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/CreateClientIDDialog.png" class="img-fluid figure-img"></p>
+<p><img src="../images/CreateClientIDDialog.png" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Create Client Id</figcaption><p></p>
 </figure>
 </div>
@@ -955,7 +961,7 @@ Important
 </section>
 <section id="proxy-considerations" class="level3">
 <h3 class="anchored" data-anchor-id="proxy-considerations">Proxy Considerations</h3>
-<p>If you are running RStudio behind a proxy, you will need to configure your proxy in a way that RStudio can tell the Google Web Services to redirect back to the correct location. There are number of options to choose from as described in [Running with a Proxy].</p>
+<p>If you are running RStudio behind a proxy, you will need to configure your proxy in a way that RStudio can tell the Google Web Services to redirect back to the correct location. There are number of options to choose from as described in <a href="../access_and_security/running_with_a_proxy.html">Running with a Proxy</a>.</p>
 <p>The use of the <code>X-RStudio-Request</code> header in your proxy is recommended and the only method which works behind a path-rewriting proxy. In this case, the proxy must set the <code>X-RStudio-Request</code> header to the exact complete URL as requested by the browser. For example if your proxy was set up to serve RStudio requests at <code>https://testdomain.com/rstudio/</code> and an incoming request for <code>/home</code> came in, your proxy should set <code>X-RStudio-Request: https://testdomain.com/rstudio/home</code> which would allow RStudio to know about the added path prefix <code>/rstudio</code>.</p>
 <p>If your proxy does not add path prefixes, RStudio is also compatible with two options using commonly available HTTP proxy headers:</p>
 <ul>

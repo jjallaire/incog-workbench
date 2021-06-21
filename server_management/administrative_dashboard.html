@@ -209,7 +209,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -290,7 +290,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -704,7 +704,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -714,19 +714,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -755,6 +755,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -818,7 +824,7 @@
 <p>Note that as with the admin groups above, you can specify a single group as the above example does or a comma-delimited list of groups. For example:</p>
 <p><em>/etc/rstudio/rserver.conf</em></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-superuser-group</span><span class="ot">=</span><span class="st">rstudio-superuser-admins,domain-admins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Changes to the configuration will not take effect until the server is restarted. Admin superusers can also be added via the command line. See [Adding users to the user database].</p>
+<p>Changes to the configuration will not take effect until the server is restarted. Admin superusers can also be added via the command line. See <a href="../server_management/core_administrative_tasks.html#adding-users-to-the-user-database">Adding users to the user database</a>.</p>
 <section id="user-impersonation-restrictions" class="level4">
 <h4 class="anchored" data-anchor-id="user-impersonation-restrictions">User Impersonation Restrictions</h4>
 <p>Note that the ability to login as other users and assume control of existing sessions is not available if you are authenticating with [SAML SSO], [Google Accounts] or proxied authentication. This is because these authentication mechanisms use a different user-identity mechanism which isn’t compatible with the way that user session impersonation is implemented.</p>
@@ -835,7 +841,7 @@
 <h3 class="anchored" data-anchor-id="licensing-considerations">Licensing Considerations</h3>
 <p>If you have been granted a license which has a limit on the total number of users that may use RStudio (i.e.&nbsp;named user licensing), you will need to control user access to the server. Each unique user that signs in to RStudio will count against your available user limit. If too many users sign in and attempt to use the system, new users will be denied, as the license limit will be reached.</p>
 <p>If this occurs, please contact <a href="mailto:sales@rstudio.com">sales@rstudio.com</a> to purchase additional users.</p>
-<p>For more information on licensing, see [License Management].</p>
+<p>For more information on licensing, see <a href="../license_management/license_management.html">License Management</a>.</p>
 <!-- -->
 </section>
 </section>

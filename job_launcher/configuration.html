@@ -209,7 +209,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -290,7 +290,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -704,7 +704,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -714,19 +714,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -755,6 +755,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -780,7 +786,7 @@
 <h2 class="anchored" data-anchor-id="launcher-configuration">Configuration</h2>
 <section id="job-launcher-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="job-launcher-configuration">Job Launcher Configuration</h3>
-<p>Before the Job Launcher can be run, it must be properly configured via the config file <code>/etc/rstudio/launcher.conf</code>; see the <a href="https://docs.rstudio.com/job-launcher/99.9.9/index.html">Job Launcher documentation</a> for supported configuration options. If the Launcher was installed with RStudio Workbench, a default working configuration that uses the Local plugin is installed for your convenience.</p>
+<p>Before the Job Launcher can be run, it must be properly configured via the config file <code>/etc/rstudio/launcher.conf</code>; see the <a href="https://docs.rstudio.com/job-launcher/1.4.1717-3/index.html">Job Launcher documentation</a> for supported configuration options. If the Launcher was installed with RStudio Workbench, a default working configuration that uses the Local plugin is installed for your convenience.</p>
 <p>The Launcher configuration parameter <code>admin-group</code> should be configured to the group value of the RStudio Workbench server user, specified in the <code>server-user</code> configuration parameter in <code>rserver.conf</code> (which defaults to rstudio-server). This makes the server user a Job Launcher admin, which is necessary to properly launch sessions on behalf of other users.</p>
 </section>
 <section id="rstudio-workbench-integration" class="level3">
@@ -942,47 +948,47 @@
 </section>
 <section id="job-launcher-and-pam-sessions" class="level4">
 <h4 class="anchored" data-anchor-id="job-launcher-and-pam-sessions">Job Launcher and PAM Sessions</h4>
-<p>PAM Sessions work slightly differently when used with Launcher sessions. See [PAM Sessions with the Job Launcher] for more information.</p>
+<p>PAM Sessions work slightly differently when used with Launcher sessions. See <a href="../r_sessions/pam_sessions.html#pam-sessions-with-the-job-launcher">PAM Sessions with the Job Launcher</a> for more information.</p>
 </section>
 <section id="authentication" class="level4">
 <h4 class="anchored" data-anchor-id="authentication">Authentication</h4>
 <p>RStudio Workbench authenticates with the Job Launcher via the <code>secure-cookie-key</code> file, a secret key that is read on startup of both the launcher and RStudio which is only readable by the root account. The file is present at <code>/etc/rstudio/secure-cookie-key</code>. If the Job Launcher is running on a different machine than RStudio Workbench, you will need to make sure that the exact same <code>secure-cookie-key</code> file is present on both machines.</p>
 <p>To do this, create a secure cookie key file on one of the nodes like so:</p>
-<pre><code># generate secure-cookie-key as a simple UUID
-sudo sh -c "echo `uuid` &gt; /etc/rstudio/secure-cookie-key"
-
-# ensure that the cookie is only readable by root
-sudo chmod 0600 /etc/rstudio/secure-cookie-key</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate secure-cookie-key as a simple UUID</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> sh <span class="at">-c</span> <span class="st">"echo </span><span class="kw">`</span><span class="ex">uuid</span><span class="kw">`</span><span class="st"> &gt; /etc/rstudio/secure-cookie-key"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ensure that the cookie is only readable by root</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 0600 /etc/rstudio/secure-cookie-key</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Once this file has been created, copy it to the other node to the same location so that both services use the same key. Alternatively, you could accomplish this via a symlink to a location on a file share.</p>
 <p>The path to the <code>secure-cookie-key</code> file can be changed, but it is not recommended in most cases. If you need to change it, it can be done by adding the following line to the <code>/etc/rstudio/rserver.conf</code> and <code>/etc/rstudio/launcher.conf</code> configuration files:</p>
 <p><strong>/etc/rstudio/rserver.conf</strong> and <strong>/etc/rstudio/launcher.conf</strong></p>
-<pre><code>secure-cookie-key-file=/path/to/secure-cookie-key</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">secure-cookie-key-file=/path/to/secure-cookie-key</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When running Launcher sessions in a load balanced RStudio deployment, sessions do additional authorization verification to ensure that they are only used by the user that created them. This is accomplished by an RSA key pair, located at <code>/etc/rstudio/launcher.pem</code> and <code>/etc/rstudio/launcher.pub</code>. These files must be the same on every RStudio node, or users will be unable to use their sessions on multiple nodes.</p>
 <p>In order to create the RSA files, run the following commands:</p>
-<pre><code>sudo openssl genpkey -algorithm RSA -out /etc/rstudio/launcher.pem -pkeyopt rsa_keygen_bits:2048
-sudo openssl rsa -in /etc/rstudio/launcher.pem -pubout &gt; /etc/rstudio/launcher.pub
-sudo chmod 0600 /etc/rstudio/launcher.pem"</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> openssl genpkey <span class="at">-algorithm</span> RSA <span class="at">-out</span> /etc/rstudio/launcher.pem <span class="at">-pkeyopt</span> rsa_keygen_bits:2048</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> openssl rsa <span class="at">-in</span> /etc/rstudio/launcher.pem <span class="at">-pubout</span> <span class="op">&gt;</span> /etc/rstudio/launcher.pub</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 0600 /etc/rstudio/launcher.pem<span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You must ensure that the above private key (.pem) file is owned by root and has <code>600</code> permissions, as it <em>must</em> remain secret to your users.</p>
 <p>Once the files are created, simply copy them to each RStudio node in your cluster.</p>
 </section>
 <section id="launcher-sessions" class="level4">
 <h4 class="anchored" data-anchor-id="launcher-sessions">Launcher Sessions</h4>
-<p>It is recommended that you configure the Shared Storage path (see [Shared Storage] for configuration) in a location that will be reachable both by the RStudio Workbench instance and each Launcher Session in order to support various RStudio features. Failure to do so could cause subtle, unintended issues.</p>
+<p>It is recommended that you configure the Shared Storage path (see <a href="../r_sessions/project_sharing.html#shared-storage">Shared Storage</a> for configuration) in a location that will be reachable both by the RStudio Workbench instance and each Launcher Session in order to support various RStudio features. Failure to do so could cause subtle, unintended issues.</p>
 <p>See the <a href="#launcher-mounts">Launcher Mounts</a> section for more details about how to configure this correctly with <a href="#containerized-sessions">Containerized Sessions</a>.</p>
 </section>
 <section id="containerized-sessions" class="level4">
 <h4 class="anchored" data-anchor-id="containerized-sessions">Containerized Sessions</h4>
 <p>In order to run your R sessions in containers, you will need a Docker image that contains the necessary <code>rsession</code> binaries installed. RStudio provides an official image for this purpose, which you can get from <a href="https://hub.docker.com/r/rstudio/r-session-complete">Docker Hub</a>.</p>
 <p>For example, to get the RHEL6 image, you would run:</p>
-<pre><code>docker pull rstudio/r-session-complete:centos7</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull rstudio/r-session-complete:centos7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>After pulling the desired image, you will need to create your own Dockerfile that extends from the r-session-complete image and adds whatever versions of R you want to be available to your users, as well as adding any R packages that they will need. For example, your Dockerfile should look similar to the following:</p>
-<pre><code>FROM rstudio/r-session-complete:centos7
-
-# install desired versions of R
-RUN yum install -y R
-
-# install R packages
-...</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">FROM</span> rstudio/r-session-complete:centos7</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install desired versions of R</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">RUN</span> yum install <span class="at">-y</span> R</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install R packages</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>See <a href="https://hub.docker.com/r/rstudio/r-session-complete">Docker Hub</a> for more information.</p>
 <section id="launcher-mounts" class="level5">
 <h5 class="anchored" data-anchor-id="launcher-mounts">Launcher Mounts</h5>

@@ -146,7 +146,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -227,7 +227,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -641,7 +641,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -651,19 +651,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -692,6 +692,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -725,7 +731,7 @@ Note
 <p>In this mode, when using the local Launcher, sessions will be balanced according to the setting you have defined under <code>balancer</code> in <em>/etc/rstudio/load-balancer</em>.</p>
 </div>
 </div>
-<p>However, in some cases, you may want to scale the Job Launcher separately from RStudio Workbench. For example, if your Launcher cluster needs to exist in a different network for security reasons, such as to limit node connectivity to backend services (e.g., Kubernetes). In such cases, you will need to scale the Job Launcher separately via an external load balancer, and Workbench should be configured to point to this load balanced instance of the Job Launcher. In most cases, the external load balancer should be configured for sticky sessions, which will ensure that each instance of Workbench connects to just one Job Launcher node, providing the most consistent view of the current job state. For more information on configuring the Job Launcher for load balancing, see the <a href="https://docs.rstudio.com/job-launcher/99.9.9/index.html">Job Launcher documentation</a>.</p>
+<p>However, in some cases, you may want to scale the Job Launcher separately from RStudio Workbench. For example, if your Launcher cluster needs to exist in a different network for security reasons, such as to limit node connectivity to backend services (e.g., Kubernetes). In such cases, you will need to scale the Job Launcher separately via an external load balancer, and Workbench should be configured to point to this load balanced instance of the Job Launcher. In most cases, the external load balancer should be configured for sticky sessions, which will ensure that each instance of Workbench connects to just one Job Launcher node, providing the most consistent view of the current job state. For more information on configuring the Job Launcher for load balancing, see the <a href="https://docs.rstudio.com/job-launcher/1.4.1717-3/index.html">Job Launcher documentation</a>.</p>
 <p>It should be noted that in most cases, load balancing is not needed for performance reasons, and is generally used for redundancy purposes.</p>
 <!-- -->
 </section>

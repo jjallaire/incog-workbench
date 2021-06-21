@@ -288,7 +288,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -369,7 +369,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -783,7 +783,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -793,19 +793,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -834,6 +834,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -872,7 +878,7 @@
 </section>
 <section id="default-version-per-user-or-group" class="level3">
 <h3 class="anchored" data-anchor-id="default-version-per-user-or-group">Default Version Per User or Group</h3>
-<p>You can use the [User and Group Profiles] feature to specify distinct default versions of R for various users and groups. For example, the following profile configuration uses R 3.1.0 as the system default, R 3.2.0 for the <code>powerusers</code> group, and R 3.0.2 for the user <code>jsmith</code>:</p>
+<p>You can use the <a href="../r_sessions/user_and_group_profiles.html">User and Group Profiles</a> feature to specify distinct default versions of R for various users and groups. For example, the following profile configuration uses R 3.1.0 as the system default, R 3.2.0 for the <code>powerusers</code> group, and R 3.0.2 for the user <code>jsmith</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[*]</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">r-version </span><span class="ot">=</span><span class="st"> /opt/R/</span><span class="dv">3</span><span class="st">.</span><span class="fl">1.0</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -888,11 +894,11 @@
 <p>Users can also configure their own default version of R. This is done using the <strong>General</strong> pane of the <strong>Global Options</strong> dialog:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/SetDefaultRVersion.png" class="img-fluid figure-img"></p>
+<p><img src="../images/SetDefaultRVersion.png" class="img-fluid figure-img"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Set Default R Version</figcaption><p></p>
 </figure>
 </div>
-<p>See the [Disabling Use of Multiple Versions] section for details on how to disable version switching entirely either system-wide or on a per-user or per-group basis.</p>
+<p>See the <a href="../r_versions/using_multiple_versions_of_r.html#disabling-use-of-multiple-versions">Disabling Use of Multiple Versions</a> section for details on how to disable version switching entirely either system-wide or on a per-user or per-group basis.</p>
 <!-- -->
 </section>
 </section>

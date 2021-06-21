@@ -146,7 +146,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../server_management/server-management.qmd" class="">Server Management</a>
+            <a href="../server_management/server_management.html" class="">Server Management</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#servermanagement-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -227,7 +227,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../access_and_security/access-and-security.qmd" class="">Access and Security</a>
+            <a href="../access_and_security/access_and_security.html" class="">Access and Security</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#accessandsecurity-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -641,7 +641,7 @@
         <div class="me-auto ">
           <div class="d-inline-flex w-100 sidebar-section-item">
             <div class="sidebar-section-link me-auto ">
-            <a href="../hardening_splits/hardening.html" class="">Hardening</a>
+            <a href="../hardening/hardening.html" class="">Hardening</a>
             </div>
             <a class="text-start  " data-bs-toggle="collapse" data-bs-target="#hardening-collapse" aria-expanded="true">
               <div><i class="bi bi-chevron-right ms-2 "></i></div>
@@ -651,19 +651,19 @@
       <div class="collapse  show" id="hardening-collapse">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="../hardening_splits/set_up_ssl.html" class="">Set up SSL</a>
+  <a href="../hardening/set_up_ssl.html" class="">Set up SSL</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/browser_security.html" class="">Browser Security</a>
+  <a href="../hardening/browser_security.html" class="">Browser Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/r_session_security.html" class="">R Session Security</a>
+  <a href="../hardening/r_session_security.html" class="">R Session Security</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/other.html" class="">Other</a>
+  <a href="../hardening/other.html" class="">Other</a>
 </li>
           <li class="sidebar-item">
-  <a href="../hardening_splits/example_secure_configuration.html" class="">Example Secure Configuration</a>
+  <a href="../hardening/example_secure_configuration.html" class="">Example Secure Configuration</a>
 </li>
         </ul>
       </div>
@@ -692,6 +692,12 @@
         </div>
       <div class="collapse  show" id="rstudioconfiguration-collapse">
         <ul class="list-unstyled sidebar-item-contents">
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rserver_conf.html" class="">rserver.conf</a>
+</li>
+          <li class="sidebar-item">
+  <a href="../rstudio_server_configuration/rsession_conf.html" class="">rsession.conf</a>
+</li>
         </ul>
       </div>
     </li>
@@ -723,8 +729,8 @@
 <h3 class="anchored" data-anchor-id="migrating-from-pam">Migrating from PAM</h3>
 <p>Your local system accounts currently used with PAM can be used for Single Sing-On (SSO) authentication with SAML or OpenID. Ensure that:</p>
 <ul>
-<li>The existing PAM configuration is configured for [PAM &amp; Provisioning], as suggested above.</li>
-<li>RStudio is configured with [PAM Sessions] if your local system accounts are maintained by <code>sssd</code>.</li>
+<li>The existing PAM configuration is configured for <a href="../authenticating_users/pam_basics.html#pam-provisioning">PAM &amp; Provisioning</a>, as suggested above.</li>
+<li>RStudio is configured with <a href="../r_sessions/pam_sessions.html">PAM Sessions</a> if your local system accounts are maintained by <code>sssd</code>.</li>
 <li>RStudio is configured with the appropriate SSO authentication mechanism.</li>
 <li>The configured SAML attribute or OpenID claim for username from your Identity Management system matches the names of your <strong>existing</strong> local system accounts.</li>
 </ul>
@@ -750,7 +756,7 @@ Important
 <h3 class="anchored" data-anchor-id="migrating-from-proxied-authentication">Migrating from Proxied authentication</h3>
 <p>Your local system accounts currently used with Proxied authentication can be used for Single Sing-On (SSO) authentication with SAML or OpenID. Ensure that:</p>
 <ul>
-<li>If RStudio is placed under a different path by the proxy (e.g., <code>example.com/rstudio</code>), be sure to check the “Proxy Considerations” sections under [SAML Single Sign-On Authentication] or [OpenID Connect Authentication] for additional options your proxy or RStudio configuration may need.</li>
+<li>If RStudio is placed under a different path by the proxy (e.g., <code>example.com/rstudio</code>), be sure to check the “Proxy Considerations” sections under <a href="../authenticating_users/saml_sso.html">SAML Single Sign-On Authentication</a> or <a href="../authenticating_users/openid_connect_authentication.html">OpenID Connect Authentication</a> for additional options your proxy or RStudio configuration may need.</li>
 <li>RStudio is configured with the appropriate SSO authentication mechanism.</li>
 <li>The configured SAML attribute or OpenID claim for username match the names of your <strong>existing</strong> local system accounts as they were sent by the proxy in the HTTP header for username.</li>
 </ul>
