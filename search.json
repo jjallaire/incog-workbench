@@ -25,7 +25,7 @@
   },
   {
     "href": "getting_started/getting_started.html",
-    "title": "RStudio Workbench r params$version",
+    "title": "RStudio Workbench 99.9.9-9",
     "section": "",
     "text": "Getting Started"
   },
@@ -154,12 +154,6 @@
     "title": "RStudio Workbench Administration",
     "section": "Connectivity using ODBC",
     "text": "RStudio makes ODBC connections available in the Connections Pane. ODBC connections are obtained from the odbcinst.ini file and can be further customized using Snippet Files.\n\nProfessional Drivers\nRStudio Workbench provides connectivity to data sources through RStudio Professional Drivers. See Getting Started with RStudio Professional Drivers and Databases using R for more information."
-  },
-  {
-    "href": "test.html#circle",
-    "title": "RStudio Workbench Administration",
-    "section": "Circle",
-    "text": "The radius of the circle is 3."
   },
   {
     "href": "license_management/product_activation.html#product-activation",
@@ -489,7 +483,7 @@
     "href": "example.html",
     "title": "RStudio Workbench",
     "section": "",
-    "text": "One plus two is r 1 + 2.\nToday’s date is r Sys.Date()."
+    "text": "One plus two is 3.\nToday’s date is 2021-06-20."
   },
   {
     "href": "r_sessions/pam_sessions.html#pam-sessions",
