@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -787,11 +788,11 @@
 <section id="r-console-auditing" class="level3">
 <h3 class="anchored" data-anchor-id="r-console-auditing">R Console Auditing</h3>
 <p>RStudio Workbench can be optionally configured to audit all R console activity by writing console input and output to a central location (the <code>/var/lib/rstudio-server/audit/r-console</code> directory by default). This feature can be enabled using the <code>audit-r-console</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console</span><span class="ot">=</span><span class="st">input</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console</span><span class="ot">=</span><span class="st">input</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will audit all R console <em>input</em>. If you wish to record both console input and output then you can use the <code>all</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console</span><span class="ot">=</span><span class="st">all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console</span><span class="ot">=</span><span class="st">all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that if you choose to record both input and output you’ll need considerably more storage available than if you record input only. See the <a href="#storage-options-1">Storage Options</a> section below for additional discussion of storage requirements and configuration.</p>
 <section id="data-format" class="level4">
 <h4 class="anchored" data-anchor-id="data-format">Data Format</h4>
@@ -840,18 +841,18 @@
 <section id="storage-options" class="level4">
 <h4 class="anchored" data-anchor-id="storage-options">Storage Options</h4>
 <p>You can customize both the location where audit data is written as well as the maximum amount of data to log per-user (by default this is 50 MB). To specify the root directory for audit data you use the <code>audit-data-path</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-data-path</span><span class="ot">=</span><span class="st">/audit-data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-data-path</span><span class="ot">=</span><span class="st">/audit-data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this path affects the location of both R console auditing and R session auditing data.</p>
 <p>To specify the maximum amount of data to write to an individual user’s R console log file you use the <code>audit-r-console-user-limit-mb</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console-user-limit-mb</span><span class="ot">=</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console-user-limit-mb</span><span class="ot">=</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The default maximum R console log file size is 50 megabytes per-user. To configure no limit to the size of files which can be written you set the value to <code>0</code>, for example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console-user-limit-mb</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console-user-limit-mb</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you wish for RStudio to automatically roll the log files once the maximum size is reached, set the <code>audit-r-console-user-limit-months</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console-user-limit-months</span><span class="ot">=</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-console-user-limit-months</span><span class="ot">=</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will cause log files to be rolled over once the maximum size is reached, and only two months of data will be kept. Note that this setting is not set by default.</p>
 <p>Note that if the month limit is not set, then log files will not be rolled automatically. Depending on the number of users and their activity level this means that you should either create a scheduled (e.g.&nbsp;cron) job to periodically move the files off the server onto auxiliary storage and/or ensure that the volume they are stored on has sufficient capacity.</p>
 </section>
@@ -859,8 +860,8 @@
 <section id="r-session-auditing" class="level3">
 <h3 class="anchored" data-anchor-id="r-session-auditing">R Session Auditing</h3>
 <p>RStudio Workbench can be optionally configured to write an audit log of session related events (e.g.&nbsp;login/logout, session start/suspend/exit) to a central location (the <code>/var/lib/rstudio-server/audit/r-sessions</code> directory by default). This feature can be enabled using the <code>audit-r-sessions</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-sessions</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-sessions</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this is enabled by default if you are using named user licenses.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -982,18 +983,18 @@ Note
 <section id="storage-options-1" class="level4">
 <h4 class="anchored" data-anchor-id="storage-options-1">Storage Options</h4>
 <p>You can customize both the location where audit data is written as well as the maximum amount of R session event data to log (by default this is 1 GB). To specify the root directory for audit data you use the <code>audit-data-path</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-data-path</span><span class="ot">=</span><span class="st">/audit-data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-data-path</span><span class="ot">=</span><span class="st">/audit-data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this path affects the location of both R console auditing and R session auditing data.</p>
 <p>To specify the maximum amount of R session event data to log you use the <code>audit-r-sessions-limit-mb</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-sessions-limit-mb</span><span class="ot">=</span><span class="dv">2048</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-sessions-limit-mb</span><span class="ot">=</span><span class="dv">2048</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The default maximum R session event log file size is 1 GB (1024 MB). To configure no limit to the size of files which can be written you set the value to <code>0</code>, for example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-sessions-limit-mb</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-sessions-limit-mb</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you wish for RStudio to automatically roll the log files once the maximum size is reached, set the <code>audit-r-sessions-limit-months</code> setting. The default is set to 13 months. To set it manually, for example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-sessions-limit-months</span><span class="ot">=</span><span class="dv">13</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">audit-r-sessions-limit-months</span><span class="ot">=</span><span class="dv">13</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will cause log files to be rolled over once the maximum size is reached, and only thirteen months of data will be kept. We do not recommend you change this setting if using named user licenses.</p>
 <p>Note that if the month limit is not set, then log files will not be rolled automatically. This means that you should either create a scheduled (e.g.&nbsp;cron) job to periodically move the file off the server onto auxiliary storage and/or ensure that the volume that it is stored on has sufficient capacity.</p>
 <p>In any case, the amount of data written to the R session event log file is not large (less than 1 KB per session) so a large number of session events can be stored within the default 1 GB maximum log file size.</p>

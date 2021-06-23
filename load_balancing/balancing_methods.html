@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -822,8 +823,8 @@
 <section id="node-host-format" class="level4">
 <h4 class="anchored" data-anchor-id="node-host-format">Node Host Format</h4>
 <p>In earlier versions of RStudio, the custom load balancing script would always be passed a list of raw IP addresses in <code>RSTUDIO_NODES</code>; now, <code>RSTUDIO_NODES</code> will contain the hosts as specified in the <code>load-balancer</code> file. If you want to specify host names in your <code>load-balancer</code> file but work with raw IPs in your custom load balancing script, you can set the following option:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<pre><code>resolve-load-balancer-nodes=1</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">resolve-load-balancer-nodes=1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this option is incompatible with SSL unless your servers’ SSL certificates contain IP addresses in their CN/SAN.</p>
 <!-- -->
 </section>

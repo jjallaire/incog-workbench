@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -793,11 +794,11 @@
 <li>The <code>rstudio.sessionInit</code> hook</li>
 </ol>
 <p>The very last of these provides a way to run code after the R session is fully booted and ready to use; since it only runs in RStudio it can be used to finalize R sessions in RStudio-specific ways, using for example methods in the <code>rstudioapi</code> package. Here is an example that prints the RStudio version in new R sessions:</p>
-<p><em>/opt/R/version/lib64/r/etc/Rprofile.site</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setHook</span>(<span class="st">"rstudio.sessionInit"</span>, <span class="cf">function</span>(newSession) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (newSession)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Welcome to RStudio "</span>, rstudioapi<span class="sc">::</span><span class="fu">getVersion</span>())</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}, <span class="at">action =</span> <span class="st">"append"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /opt/R/version/lib64/r/etc/Rprofile.site</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setHook</span>(<span class="st">"rstudio.sessionInit"</span>, <span class="cf">function</span>(newSession) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (newSession)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Welcome to RStudio "</span>, rstudioapi<span class="sc">::</span><span class="fu">getVersion</span>())</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}, <span class="at">action =</span> <span class="st">"append"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- -->
 </section>
 </main>

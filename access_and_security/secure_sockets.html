@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -787,10 +788,10 @@
 <section id="ssl-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="ssl-configuration">SSL Configuration</h3>
 <p>If your RStudio Workbench is running on a public network then configuring it to use SSL (Secure Sockets Layer) encryption is strongly recommended. You can do this via the <code>ssl-enabled</code> setting along with related settings that specify the location of your SSL certificate and key. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-certificate</span><span class="ot">=</span><span class="st">/var/certs/your_domain_name.crt</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-certificate-key</span><span class="ot">=</span><span class="st">/var/certs/your_domain_name.key  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-certificate</span><span class="ot">=</span><span class="st">/var/certs/your_domain_name.crt</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-certificate-key</span><span class="ot">=</span><span class="st">/var/certs/your_domain_name.key  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>.crt</code> file should be encoded in the PEM format; that is, the first line should read <code>-----BEGIN CERTIFICATE-----</code>, and the contents should be base64-encoded data. If your certificate is in another format, such as DER or PKCS, use the <code>openssl</code> command-line tool to convert it to PEM. For example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">openssl x509 -inform DER -outform PEM -text -in your_domain_name.der -out your_domain_name.crt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>It’s important when installing the certificate <code>.crt</code> file that you concatenate together any intermediate certificates (i.e.&nbsp;the generic one from your certificate authority) with the certificate associated with your domain name. For example you could use a shell command of this form to concatenate the CA intermediate certificate to your domain name’s certificate:</p>
@@ -802,8 +803,8 @@
 <section id="ssl-protocols" class="level3">
 <h3 class="anchored" data-anchor-id="ssl-protocols">SSL Protocols</h3>
 <p>By default RStudio Workbench supports the TLSv1, TLSv1.1, TLSv1.2, and TLSv1.3 protocols for SSL. The list of supported protocols can configured via the <code>ssl-protocols</code> option. For example, to use only the TLSv1.1 and TLSv1.2 protocols you would use:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssl-protocols=TLSv1.1</span> TLSv1.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ssl-protocols=TLSv1.1</span> TLSv1.2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The list of supported protocols is space delimited (as illustrated above). Valid protocol values are: <code>SSLv2</code>, <code>SSLv3</code>, <code>TLSv1</code>, <code>TLSv1.1</code>, <code>TLSv1.2</code>, and <code>TLSv1.3</code>.</p>
 <p>Note that not all protocols may be available on your system; TLS 1.1 and 1.2 require OpenSSL 1.0.1, and TLS 1.3 requires OpenSSL 1.1.1 built with TLS 1.3 support.</p>
 <!-- -->

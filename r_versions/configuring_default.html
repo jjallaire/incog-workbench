@@ -811,6 +811,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -872,8 +873,8 @@
 <p>The <code>which</code> command performs a search for the R executable using the system PATH. RStudio will therefore by default bind to the same version that is run when R is executed from a terminal.</p>
 <p>For versions of R installed by system package managers this will be <code>/usr/lib/R</code>. For versions of R installed from source this will typically (but not always) be <code>/usr/local/lib/R</code>.</p>
 <p>If you want to override which version of R is used, then you can use the <code>rsession-which-r</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-which-r</span><span class="ot">=</span><span class="st">/usr/local/lib/R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">rsession-which-r=/usr/local/lib/R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Note:</strong> This change will not take effect until the server is restarted.</p>
 </section>
 <section id="default-version-per-user-or-group" class="level3">

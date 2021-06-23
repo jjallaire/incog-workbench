@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -787,8 +788,7 @@
 <p>RStudio allows you to automatically capture crash dumps for all RStudio processes and upload them to our crash database for easy reporting, allowing us to more easily determine the exact cause of crashes without adding administrative overhead to your team by requiring you to manually collect crash dumps. As user privacy is of utmost concern, these crash dumps <strong>only</strong> contain stack information, such as the names of the functions that were on the callstack at the time of the crash. <strong>No</strong> heap information is stored within the dumps, so no sensitive user data is captured in the crash dumps. The IP address of the machine uploading the reports is captured and used <strong>only</strong> to determine the unique amount of users experiencing a crash.</p>
 <section id="crash-handler-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="crash-handler-configuration">Crash Handler Configuration</h3>
-<p>A separate RStudio process is responsible for handling crashes, and may be configured similar to other RStudio processes by modifying the config file <code>/etc/rstudio/crash-handler.conf</code>. Automated crash handling is disabled by default, though we recommend that you enable it. The following shows a table of available configuration options.</p>
-<p><strong>/etc/rstudio/crash-handler.conf</strong></p>
+<p>A separate RStudio process is responsible for handling crashes, and may be configured similar to other RStudio processes by modifying the config file <code>/etc/rstudio/crash-handler.conf</code>. Automated crash handling is disabled by default, though we recommend that you enable it. The following shows a table of available configuration options for <code>/etc/rstudio/crash-handler.conf</code>:</p>
 <table class="table">
 <colgroup>
 <col style="width: 15%">
@@ -837,9 +837,9 @@
 </tr>
 </tbody>
 </table>
-<p>For most RStudio installations, it is sufficient to merely set <code>crash-handling-enabled=1</code> in the config file, like so:</p>
-<p><strong>/etc/rstudio/crash-handler.conf</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">crash-handling-enabled</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For most RStudio installations, it is sufficient to merely set <code>crash-handling-enabled=1</code> in the config file , like so:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/crash-handler.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">crash-handling-enabled</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="manually-uploading-crash-dumps" class="level3">
 <h3 class="anchored" data-anchor-id="manually-uploading-crash-dumps">Manually Uploading Crash Dumps</h3>

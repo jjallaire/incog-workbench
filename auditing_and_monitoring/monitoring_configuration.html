@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -786,13 +787,13 @@
 <h2 class="anchored" data-anchor-id="monitoring-configuration">Monitoring Configuration</h2>
 <section id="system-and-per-user-resources" class="level3">
 <h3 class="anchored" data-anchor-id="system-and-per-user-resources">System and Per-User Resources</h3>
-<p>RStudio Workbench monitors the use of resources (CPU, memory, etc.) on both a per-user and system wide basis. By default, monitoring data is written to a set of RRD (<a href="http://oss.oetiker.ch/rrdtool/">http://oss.oetiker.ch/rrdtool/</a>) files and can be viewed using the <a href="../server_management/administrative_dashboard.html">Administrative Dashboard</a>.</p>
+<p>RStudio Workbench monitors the use of resources (CPU, memory, etc.) on both a per-user and system wide basis. By default, monitoring data is written to a set of <a href="http://oss.oetiker.ch/rrdtool/">RRD</a> files and can be viewed using the <a href="../server_management/administrative_dashboard.html">Administrative Dashboard</a>.</p>
 <p>The storage of system monitoring data requires about 20MB of disk space and the storage of user monitoring data requires about 3.5MB per user. This data is stored by default at <code>/var/lib/rstudio-server/monitor</code>. If you have a large number of users you may wish to specify an alternate volume for monitoring data. You can do this using the <code>monitor-data-path</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-data-path</span><span class="ot">=</span><span class="st">/monitor-data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-data-path</span><span class="ot">=</span><span class="st">/monitor-data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You also might wish to disable monitoring with RRD entirely. You can do this using the <code>monitor-rrd-enabled</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-rrd-enabled</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-rrd-enabled</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that changes to the configuration will not take effect until the server is restarted.</p>
 <section id="analyzing-rrd-files" class="level4">
 <h4 class="anchored" data-anchor-id="analyzing-rrd-files">Analyzing RRD files</h4>
@@ -830,14 +831,14 @@
 </tbody>
 </table>
 <p>For example, to enable Graphite monitoring on a remote host with the default Graphite port you would use these settings:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-host</span><span class="ot">=</span><span class="dv">134</span><span class="st">.</span><span class="dv">47</span><span class="st">.</span><span class="fl">22.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-host</span><span class="ot">=</span><span class="dv">134</span><span class="st">.</span><span class="dv">47</span><span class="st">.</span><span class="fl">22.6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you are using a service like hosted graphite.com that requires that you provide an API key as part of reporting metrics you can use the <code>monitor-graphite-client-id</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-host</span><span class="ot">=</span><span class="st">carbon.hostedgraphite.com</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-client-id</span><span class="ot">=</span><span class="st">490662a4-1d8c</span><span class="fl">-11e5</span><span class="st">-b06d-000c298f3d04</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-host</span><span class="ot">=</span><span class="st">carbon.hostedgraphite.com</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dt">monitor-graphite-client-id</span><span class="ot">=</span><span class="st">490662a4-1d8c</span><span class="fl">-11e5</span><span class="st">-b06d-000c298f3d04</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that changes to the configuration will not take effect until the server is restarted.</p>
 <!-- -->
 </section>

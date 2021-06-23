@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -846,8 +847,8 @@
 <section id="using-floating-licensing" class="level3">
 <h3 class="anchored" data-anchor-id="using-floating-licensing">Using Floating Licensing</h3>
 <p>Once your license server is up and running, you need to tell RStudio Workbench to use floating licensing instead of traditional licensing.</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<pre><code>server-license-type=remote</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">server-license-type=remote</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The value <code>remote</code> indicates that RStudio Workbench should connect to a remote licensing server to obtain a license; the value <code>local</code> can be used to explicitly specify traditional (local) activation.</p>
 <p>Then, tell RStudio Workbench which licensing server to connect to:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo rstudio-server license-manager license-server <span class="op">&lt;</span>server-hostname-or-ip<span class="op">&gt;</span></span>
@@ -889,8 +890,8 @@
 <section id="configuring-license-leases" class="level3">
 <h3 class="anchored" data-anchor-id="configuring-license-leases">Configuring License Leases</h3>
 <p>When using floating licenses, you can optionally determine how long the license leases last by setting the <code>lease length</code> value on the licensing server. This value is in seconds, so for instance to make license leases last 30 minutes you would use the following syntax:</p>
-<p><em>/etc/rsp-license-server.conf</em></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="ot">lease</span> <span class="er">length</span><span class="ot">=</span><span class="st">"1800"</span>/&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--/etc/rsp-license-server.conf--&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="ot">lease</span> <span class="er">length</span><span class="ot">=</span><span class="st">"1800"</span>/&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The lease length controls how frequently the RStudio Workbench instances need to contact the licensing server to renew their license leases in order for the lease to remain valid.</p>
 <p>A <strong>shorter</strong> lease length will increase tolerance to failures on RStudio Workbench instances by making leases available for reuse more quickly. RStudio Workbench will release its lease immediately if shut down normally, but if abnormally terminated, the lease will not be released until it expires.</p>
 <p>A <strong>longer</strong> lease length will increase tolerance to transient failures on the network and the RStudio Workbench License Server. Any such issues that can be resolved before the lease is due for renewal won’t interrupt use of RStudio Workbench.</p>
@@ -905,8 +906,8 @@
 <h3 class="anchored" data-anchor-id="lease-expiration-and-renewal">Lease Expiration and Renewal</h3>
 <p>Under normal conditions RStudio Workbench will automatically renew its license lease in a configurable interval as described above. However, there are situations in which it will be unable to do so, such as a network problem, or an issue on the host running the license server.</p>
 <p>When RStudio Workbench cannot obtain a license lease, either because there are no leases currently available or because it can’t reach the licensing server, it will begin automatically attempting to acquire a lease every 10 seconds. This interval is configurable; for instance, to retry every 30 seconds instead you would set the following value:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<pre><code>license-retry-seconds=30</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">license-retry-seconds=30</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you don’t want RStudio Workbench to attempt to reestablish a license lease automatically, set the value to <code>0</code> to disable retries. In this case you will need to manually restart RStudio Workbench in order to reestablish the lease. This can be useful if you often run more instances than you have keys for, and wish to have more control over which RStudio Workbench instances receive license leases from the limited pool on the license server.</p>
 </section>
 <section id="troubleshooting-floating-licensing" class="level3">
@@ -914,8 +915,8 @@
 <p>To validate that the license server has been successfully activated, run the <code>activation-status</code> command. This will report the version of the server as well as the license key and the number of available slots.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo rsp-license-server activation-status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If your server is activated but you’re still having trouble with floating licensing, you can tell the RStudio Workbench License Server to emit more detailed logs. Change the log level to <code>notification</code>:</p>
-<p><em>/etc/rsp-license-server.conf</em></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="ot">log</span> <span class="er">file</span><span class="ot">=</span><span class="st">"/var/log/rstudio-licensing.log"</span><span class="ot"> level=</span><span class="st">"notification"</span>/&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!--/etc/rsp-license-server.conf--&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="ot">log</span> <span class="er">file</span><span class="ot">=</span><span class="st">"/var/log/rstudio-licensing.log"</span><span class="ot"> level=</span><span class="st">"notification"</span>/&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, restart the license server, tail the licensing log, and start your RStudio Workbench instances.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo rsp-license-server restart</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tail <span class="at">-f</span> /var/log/rstudio-licensing.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

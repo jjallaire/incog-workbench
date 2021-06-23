@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -787,16 +788,16 @@
 <section id="inactivity-timeout" class="level3">
 <h3 class="anchored" data-anchor-id="inactivity-timeout">Inactivity Timeout</h3>
 <p>By default, user authorization will expire after 60 minutes of inactivity, requiring the user to sign in again to continue using their sessions. This is configurable by changing the <code>auth-timeout-minutes</code> setting in <em>/etc/rstudio/rserver.conf</em>. For example, to sign users out after 20 minutes of inactivity instead:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-timeout-minutes</span><span class="ot">=</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-timeout-minutes</span><span class="ot">=</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This setting supersedes the <code>auth-stay-signed-in-days</code> setting discussed below in <a href="#stay-signed-in">Stay Signed In</a>, as it provides additional security by ensuring that users that are not actively using the system do not stay signed in. However, if you wish to allow users to stay signed in for many days at a time and disable the authorization timeout completely, set <code>auth-timeout-minutes</code> to 0, which will cause the <code>auth-stay-signed-in-days</code> setting’s behavior to be used instead.</p>
 <p>Whenever a user is signed out, the database will be updated to store recently logged out/invalidated cookies, preventing the use of credential replay attacks.</p>
 </section>
 <section id="stay-signed-in" class="level3">
 <h3 class="anchored" data-anchor-id="stay-signed-in">Stay Signed In</h3>
 <p>Users have an option to stay signed in across browser sessions when using PAM or Google authentication methods. By default when choosing the stay signed in option users will remain signed in for 30 days. You can modify this behavior using the <code>auth-stay-signed-in-days</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-stay-signed-in-days</span><span class="ot">=</span><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-stay-signed-in-days</span><span class="ot">=</span><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -812,8 +813,8 @@ Warning
 </div>
 <p>Note that for this setting to take effect, <code>auth-timeout-minutes</code> must be set to 0.</p>
 <p>If you want to prevent users from being able to stay signed in, you can prevent the “Stay Signed In” option from being shown to them by using the <code>auth-stay-signed-in</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-stay-signed-in</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-stay-signed-in</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Setting this option to <code>0</code> will result in users being prompted to log in each time they start a new browser session (i.e., logins will only be valid as long as the browser process in which they originated in remains running).</p>
 <!-- -->
 </section>

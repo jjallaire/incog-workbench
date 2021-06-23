@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -792,10 +793,22 @@
 <section id="enabling-proxied-authentication" class="level3">
 <h3 class="anchored" data-anchor-id="enabling-proxied-authentication">Enabling Proxied Authentication</h3>
 <p>To enable proxied authentication you need to specify both the <code>auth-proxy</code> and <code>auth-proxy-sign-in-url</code> settings (the sign-in URL is the absolute URL to the page that users should be redirected to for sign-in). For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-proxy</span><span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-proxy-sign-in-url</span><span class="ot">=</span><span class="st">http://example.com/sign-in</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Once you enable authentication with a proxy, that becomes the exclusive means of authentication (you can’t concurrently use both PAM and proxied authentication).</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-proxy</span><span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-proxy-sign-in-url</span><span class="ot">=</span><span class="st">http://example.com/sign-in</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Once you enable authentication with a proxy, that becomes the exclusive means of authentication</strong> - you can’t concurrently use both PAM and proxied authentication.</p>
+</div>
+</div>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -821,15 +834,15 @@ Important
 <li><p>When the user clicks the “Sign out” button in the RStudio IDE user interface and there is no Sign Out URL available.</p></li>
 </ul>
 <p>The sign out URL should host a page responsible for finishing the user session in the authentication proxy. If such a URL is URL available in your proxy, the absolute URL should be configured in RStudio using the setting <code>auth-proxy-sign-out-url</code>. When the user clicks the “Sign out” button in the RStudio IDE user interface the browser will be taken to the configured sign out URL.</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-proxy-sign-out-url</span><span class="ot">=</span><span class="st">http://example.com/sign-out</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-proxy-sign-out-url</span><span class="ot">=</span><span class="st">http://example.com/sign-out</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should be sure in setting up the proxy server that traffic bound for the sign-in and sign-out URLs is excluded from forwarding to RStudio Workbench (otherwise it will end up in an infinite redirect loop).</p>
 </section>
 <section id="sign-in-delay" class="level4">
 <h4 class="anchored" data-anchor-id="sign-in-delay">Sign-In Delay</h4>
 <p>During proxied authentication in RStudio, there is a brief transition page that shows the username and some other information. By default this transition happens almost immediately. If you wish to present this page for a longer period of time, you can use the option <code>auth-proxy-sign-in-delay</code> to delay the transition for some seconds.</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-proxy-sign-in-delay</span><span class="ot">=</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-proxy-sign-in-delay</span><span class="ot">=</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="forwarding-the-username" class="level4">
 <h4 class="anchored" data-anchor-id="forwarding-the-username">Forwarding the Username</h4>
@@ -837,7 +850,19 @@ Important
 <div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">X-RStudio-Username: jsmith</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>It’s also possible to specify both a system username and a display username (in the case where system accounts are dynamically provisioned and don’t convey actual user identity). For example, if the system user is <code>ruser24</code> but the displayed username is <code>jsmith</code>, you could use:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">X-RStudio-Username: rsuser24/jsmith</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Note that is highly recommended that you <em>do not use</em> the default <code>X-RStudio-Username</code> header name. The reasons for this are described in the section on security considerations immediately below.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is highly recommended that you <em>do not use</em> the default <code>X-RStudio-Username</code> header name. The reasons for this are described in the section on <a href="#proxy-security-considerations">security considerations</a> below.</p>
+</div>
+</div>
 </section>
 <section id="rewriting-usernames" class="level4">
 <h4 class="anchored" data-anchor-id="rewriting-usernames">Rewriting Usernames</h4>
@@ -898,8 +923,8 @@ Important
 <section id="troubleshooting-with-access-logs" class="level3">
 <h3 class="anchored" data-anchor-id="troubleshooting-with-access-logs">Troubleshooting with Access Logs</h3>
 <p>If you want to see exactly which requests RStudio is receiving and whether they include the expected username information, you can temporarily enable server access logs using the <code>server-access-log</code> setting as follows:</p>
-<p><strong>/etc/rstudio/rserver.conf</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">server-access-log</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">server-access-log</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>After restarting RStudio the following file will contain a record of each HTTP request made to the server along with it’s HTTP response code:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/var/log/rstudio-server/rserver-http-access.log</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The log file will contain entries that look like this:</p>

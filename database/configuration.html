@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -791,47 +792,53 @@
 <p>By default, RStudio creates a SQLite database for you automatically under the <code>/var/lib/rstudio-server</code> directory. For single-node installations, this is sufficient, but as stated before, will not be sufficient for load balanced deployments.</p>
 <p>You should <strong>never</strong> specify a SQLite directory that is on shared storage, such as NFS. Per the <a href="https://www.sqlite.org/lockingv3.html">SQLite documentation</a>, this can cause data corruption.</p>
 <p>Sample configuration:</p>
-<p><em>/etc/rstudio/database.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">provider</span><span class="ot">=</span><span class="st">sqlite</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Directory in which the sqlite database will be written</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">directory</span><span class="ot">=</span><span class="st">/var/lib/rstudio-server</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/database.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">provider</span><span class="ot">=</span><span class="st">sqlite</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Directory in which the sqlite database will be written</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">directory</span><span class="ot">=</span><span class="st">/var/lib/rstudio-server</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="postgresql" class="level3">
 <h3 class="anchored" data-anchor-id="postgresql">PostgreSQL</h3>
 <p>If you wish to use PostgreSQL, you must create an empty database for RStudio to connect to. You must not share this database with other products or services. If running an HA setup, it is strongly recommended to run the database on a separate server than the RStudio services to ensure maximum availability. The minimum supported PostgreSQL version is 9.5.</p>
+<p>RStudio requires PostgreSQL to be configured for password-based authentication. For more details on this and other PostgreSQL fundamentals, see the support article <a href="https://support.rstudio.com/hc/en-us/articles/1500005822102-Install-and-Configure-PostgreSQL-for-RStudio-Server-Pro">Install and Configure PostgreSQL for RStudio Workbench / RStudio Server Pro</a>.</p>
 <p>Sample configuration:</p>
-<p><em>/etc/rstudio/database.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: when connecting to a PostgreSQL database, a default empty rstudio database must first be created!</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">provider</span><span class="ot">=</span><span class="st">postgresql</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the host (hostname or IP address) of the database host</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dt">host</span><span class="ot">=</span><span class="kw">localhost</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the database to connect to</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="dt">database</span><span class="ot">=</span><span class="st">rstudio</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the TCP port where the database is listening for connections</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="dt">port</span><span class="ot">=</span><span class="dv">5432</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the database connection username</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="dt">username</span><span class="ot">=</span><span class="st">postgres</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the database connection password. This may be encrypted with the secure-cookie-key.</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># The encrypted password can be generated using the helper command rstudio-server encrypt-password.</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># It is strongly recommended that you encrypt the password!</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="dt">password</span><span class="ot">=</span><span class="st">postgres</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/database.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: when connecting to a PostgreSQL database, a default empty rstudio database must first be created!</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">provider</span><span class="ot">=</span><span class="st">postgresql</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the host (hostname or IP address) of the database host</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">host</span><span class="ot">=</span><span class="kw">localhost</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the database to connect to</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="dt">database</span><span class="ot">=</span><span class="st">rstudiodb</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the TCP port where the database is listening for connections</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="dt">port</span><span class="ot">=</span><span class="dv">5432</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the database connection username</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="dt">username</span><span class="ot">=</span><span class="st">rstudio</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the database connection password. This may be encrypted with the secure-cookie-key.</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># The encrypted password can be generated using the helper command rstudio-server encrypt-password.</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># It is strongly recommended that you encrypt the password!</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="dt">password</span><span class="ot">=</span><span class="st">test</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the maximum amount of seconds allowed before a database connection attempt</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># is considered failed. The default if not specified is 10 seconds. Corresponds to the</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># PostgreSQL "connect_timeout=" connection string parameter. </span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="dt">connection-timeout-seconds</span><span class="ot">=</span><span class="dv">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>PostgreSQL connection URIs are also supported if preferred. If specifying additional options other than the ones provided above, such as <code>sslmode</code>, the use of a URI is required.</p>
 <p>For example:</p>
-<p><em>/etc/rstudio/database.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">provider</span><span class="ot">=</span><span class="st">postgresql</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the connection URL in the form of a postgresql:// connection URL. This can be used if you need</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># to set special database settings that are not available with the other parameters. If set, this parameter will</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># override any other postgresql parameters that have been set, with the exception of the password. A password in </span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the URI is supported as a convenience but we strongly recommend using the separate password field, which will</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># always replace any password specified in the URI.</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dt">connection-uri</span><span class="ot">=</span><span class="st">postgresql://postgres@localhost:</span><span class="dv">5432</span><span class="st">/rstudio?sslmode=allow&amp;options=-csearch_path=public</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/database.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">provider</span><span class="ot">=</span><span class="st">postgresql</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Specifies the connection URL in the form of a postgresql:// connection URL. This can be used if you need</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># to set special database settings that are not available with the other parameters. If set, this parameter will</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># override any other postgresql parameters that have been set, with the exception of the password. A password in </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># the URI is supported as a convenience but we strongly recommend using the separate password field, which will</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># always replace any password specified in the URI.</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dt">connection-uri</span><span class="ot">=</span><span class="st">postgresql://rstudio@localhost:</span><span class="dv">5432</span><span class="st">/rstudiodb?sslmode=allow&amp;options=-csearch_path=public</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Available PostgreSQL connection string parameters are documented in the <a href="https://www.postgresql.org/docs/10/libpq-connect.html#LIBPQ-PARAMKEYWORDS">official PostgreSQL documentation</a>.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -850,9 +857,9 @@ Note
 <h4 class="anchored" data-anchor-id="ssl">SSL</h4>
 <p>SSL for the PostgreSQL database can be used with RStudio by specifying <code>sslmode=allow</code> within the <code>connection-uri</code> parameter. The <code>connection-uri</code> mode of configuration must be used to specify additional database connection options such as these, beyond the simple name/value pairs that are supported.</p>
 <p>For example:</p>
-<p><em>/etc/rstudio/database.conf</em></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">provider</span><span class="ot">=</span><span class="st">postgresql</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">connection-uri</span><span class="ot">=</span><span class="st">postgresql://postgres@localhost:</span><span class="dv">5432</span><span class="st">/rstudio?sslmode=allow</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/database.conf</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">provider</span><span class="ot">=</span><span class="st">postgresql</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">connection-uri</span><span class="ot">=</span><span class="st">postgresql://postgres@localhost:</span><span class="dv">5432</span><span class="st">/rstudio?sslmode=allow</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="schemas" class="level4">
 <h4 class="anchored" data-anchor-id="schemas">Schemas</h4>
@@ -905,8 +912,8 @@ Note
 <h3 class="anchored" data-anchor-id="connection-pool">Connection Pool</h3>
 <p>RStudio will create a pool of connections to the database at startup. The size of this pool defaults to the number of logical CPUs on the host running RStudio Workbench, up to 20. It is not generally recommended that you adjust the size of this pool manually unless you need to address a specific problem, such as exceeding a connection limit on the database or experiencing delays in RStudio Workbench caused by unavailable connections.</p>
 <p>If you do need to adjust the size of the pool, you can do so by setting <code>pool-size</code> in <code>database.conf</code> as follows:</p>
-<p><em>/etc/rstudio/database.conf</em></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">pool-size</span><span class="ot">=</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/database.conf</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">pool-size</span><span class="ot">=</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- -->
 </section>
 </section>

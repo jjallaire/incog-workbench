@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -781,13 +782,13 @@
 <section id="additional-security-considerations" class="level2">
 <h2 class="anchored" data-anchor-id="additional-security-considerations">Additional Security Considerations</h2>
 <p>To help mitigate against CSRF attacks, RStudio can automatically reject any request originating from an <code>Origin</code> or <code>Referer</code> that does not match the <code>Host</code>, <code>X-Forwarded-Host</code>, <code>Forwarded: host</code> or <code>X-RStudio-Request</code> headers. To enable this check, add the following configuration:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-enable-origin-check</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">www-enable-origin-check</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In some cases, such as if running behind a proxy that you cannot modify, this check may be too strict, and can prevent access to RStudio, causing requests to return a 400 status. In such cases, it is recommended that you disable the check. Origin checking is currently disabled by default, but will likely be enabled by default in a future version of RStudio.</p>
 <p>You may wish to consider some origins to be safe in all cases, causing RStudio to consider such <code>Origin</code> or <code>Referer</code> values to be allowed instead of being rejected, even if they do not match a Host header. To specify such origins, add each of them as a <code>www-allow-origin</code> setting in <code>rserver.conf</code>. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-allow-origin</span><span class="ot">=</span><span class="st">mysubdomain.mydomain.com</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">www-allow-origin</span><span class="ot">=</span><span class="st">*.mydomain2.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">www-allow-origin</span><span class="ot">=</span><span class="st">mysubdomain.mydomain.com</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">www-allow-origin</span><span class="ot">=</span><span class="st">*.mydomain2.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that wildcards (<code>*</code>) are accepted and will match any character, including hostname separators. For instance, the previous example of <code>*.mydomain2.com</code> will match both <code>foo.bar.mydomain2.com</code> and <code>foo.mydomain2.com</code>.</p>
 <!-- -->
 </section>

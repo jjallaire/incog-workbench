@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -781,9 +782,9 @@
 <section id="additional-headers" class="level2">
 <h2 class="anchored" data-anchor-id="additional-headers">Additional Headers</h2>
 <p>In some cases, you may need to have RStudio set additional headers on client responses. To do this, simply specify <code>server-add-header</code> for each header that you need to add, in the form <code>Header Name:Header Value</code>. For example, to have the server set a few extra custom headers:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">server-add-header</span><span class="ot">=</span><span class="st">X-Header</span><span class="dv">-1</span><span class="st">:Value </span><span class="dv">1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">server-add-header</span><span class="ot">=</span><span class="st">X-Header</span><span class="dv">-2</span><span class="st">:Value </span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">server-add-header</span><span class="ot">=</span><span class="st">X-Header</span><span class="dv">-1</span><span class="st">:Value </span><span class="dv">1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">server-add-header</span><span class="ot">=</span><span class="st">X-Header</span><span class="dv">-2</span><span class="st">:Value </span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- -->
 </section>
 </main>

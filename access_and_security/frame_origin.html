@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -781,8 +782,8 @@
 <section id="frame-origin" class="level2">
 <h2 class="anchored" data-anchor-id="frame-origin">Frame Origin</h2>
 <p>For security reasons, RStudio will not load inside a browser frame (such as a frameset or IFrame) by default. You can modify this behavior by using the <code>www-frame-origin</code> option. For example, if you would like to host RStudio inside a browser frame at <code>example.com</code>, you can tell RStudio to allow this as follows:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">www-frame-origin</span><span class="ot">=</span><span class="st">example.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">www-frame-origin</span><span class="ot">=</span><span class="st">example.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>There are several special values available for the <code>www-frame-origin</code> option:</p>
 <table class="table">
 <colgroup>

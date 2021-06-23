@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -793,8 +794,8 @@
 <p>The <code>which</code> command performs a search for the R executable using the system PATH. RStudio will therefore by default bind to the same version that is run when R is executed from a terminal.</p>
 <p>For versions of R installed by system package managers this will be <code>/usr/lib/R</code>. For versions of R installed from source this will typically (but not always) be <code>/usr/local/lib/R</code>.</p>
 <p>If you want to override which version of R is used then you can use the <code>rsession-which-r</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-which-r</span><span class="ot">=</span><span class="st">/usr/local/bin/R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-which-r</span><span class="ot">=</span><span class="st">/usr/local/bin/R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this change will not take effect until the server is restarted.</p>
 <section id="using-multiple-versions-of-r" class="level4 pro-header">
 <h4 class="pro-header anchored" data-anchor-id="using-multiple-versions-of-r">Using Multiple Versions of R</h4>
@@ -804,8 +805,8 @@
 <section id="locating-shared-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="locating-shared-libraries">Locating Shared Libraries</h3>
 <p>You can add elements to the default <code>LD_LIBRARY_PATH</code> for R sessions (as determined by the R <code>ldpaths</code> script) by adding an <code>rsession-ld-library-path</code> entry to the server config file. This might be useful for ensuring that packages can locate external library dependencies that aren’t installed in the system standard library paths. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-ld-library-path</span><span class="ot">=</span><span class="st">/opt/someapp/lib:/opt/anotherapp/lib</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-ld-library-path</span><span class="ot">=</span><span class="st">/opt/someapp/lib:/opt/anotherapp/lib</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this change will not take effect until the server is restarted.</p>
 </section>
 <section id="customizing-session-launches" class="level3 pro-header">
@@ -823,8 +824,8 @@
 <p>If it exists this script will be executed prior to the bash shell that launches the R session. This script must be executable by all RStudio users, so it is recommended that you set its file permissions to <code>755</code> via the following command:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 755 /etc/rstudio/rsession-profile</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In some situations, you will not want to run user shell profile scripts. This is also a good way to troubleshoot the inability for sessions to launch, as it could indicate a conflict is occurring due to environment variables being set in the shell profiles. To disable execution of the shell profiles, set the <code>rsession-no-profile</code> option to <code>1</code> in <code>/etc/rstudio/rserver.conf</code>. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-no-profile</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-no-profile</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="environment-variables" class="level4">
 <h4 class="anchored" data-anchor-id="environment-variables">Environment Variables</h4>
@@ -834,25 +835,25 @@
 <section id="program-supervisors" class="level4">
 <h4 class="anchored" data-anchor-id="program-supervisors">Program Supervisors</h4>
 <p>You may also wish to run R sessions under a program supervisor that modifies their environment or available resources. You can specify a supervisor (and the arguments which control it’s behavior) using the <code>rsession-exec-command</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-exec-command</span><span class="ot">=</span><span class="st">nice -n </span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-exec-command</span><span class="ot">=</span><span class="st">nice -n </span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This example uses the <code>nice</code> command to run all R sessions with a lower scheduling priority. See <a href="http://linux.die.net/man/1/nice">http://linux.die.net/man/1/nice</a> for more details on <code>nice</code>. Note that for <code>nice</code> in particular it’s possible to accomplish the same thing using user and group profiles (and even specify a custom priority level per user or group). See the [User and Group Profiles] section for more details.</p>
 </section>
 </section>
 <section id="diagnosing-session-launch-failures" class="level3 pro-header">
 <h3 class="pro-header anchored" data-anchor-id="diagnosing-session-launch-failures">Diagnosing Session Launch Failures</h3>
 <p>RStudio Workbench allows you to launch sessions in a diagnostics mode to capture extended session launch information in the event that you run into problems when starting sessions. This mode captures the environment variables that are set by all of the profile scripts, loading of any modules, arguments passed to the session, and the exit code of the session and any stack trace information if the session crashes. To enable collection of this diagnostic data, set the <code>rsession-diagnostics-enabled</code> flag in <code>/etc/rstudio/rserver.conf</code> like below:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-diagnostics-enabled</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-diagnostics-enabled</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When this setting is enabled, all sessions that are started will create a diagnostics file that contains extended launch diagnostics under the <code>/tmp</code> directory by default. To change the location, use the <code>rsession-diagnostics-dir</code> to point to the desired directory, like so:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-diagnostics-dir</span><span class="ot">=</span><span class="st">/tmp/diagnostics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-diagnostics-dir</span><span class="ot">=</span><span class="st">/tmp/diagnostics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Be aware that this directory should be accessible by all users of the system. If it does not exist, RStudio will attempt to create it and set its permissions to Read/Write/Execute for everyone (file permissions of 777).</p>
 <p>To diagnose containerized sessions (e.g.&nbsp;Kubernetes) launched via the Job Launcher, set <code>rsession-diagnostics-dir</code> to a shared folder mounted in the container via <code>/etc/rstudio/launcher-mounts</code>. Otherwise sessions may fail to launch due to the default location under <code>/tmp</code> not being available in the containers.</p>
 <p>Strace information can be included in the diagnostics file by adding the <code>rsession-diagnostics-strace-enabled</code> flag as shown below. Before using this setting, ensure that strace is installed and is available on your users’ path.</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-diagnostics-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-diagnostics-strace-enabled</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-diagnostics-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="dt">rsession-diagnostics-strace-enabled</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We recommend that you send these files to RStudio support to aid in troubleshooting any session launch issues should they arise.</p>
 <section id="safe-mode" class="level4">
 <h4 class="anchored" data-anchor-id="safe-mode">Safe Mode</h4>

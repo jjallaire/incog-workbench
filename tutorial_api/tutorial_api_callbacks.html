@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -772,9 +773,12 @@
   <div id="quarto-toc-sidebar" class="col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
 <h2 id="toc-title">On this page</h2>
 <ul>
-<li><a href="#tutorial-api-callbacks" class="nav-link active" data-scroll-target="#tutorial-api-callbacks">Tutorial API Callbacks</a>
+<li><a href="#tutorial-api-callbacks" class="nav-link active" data-scroll-target="#tutorial-api-callbacks">Tutorial API Callbacks</a></li>
+<li><a href="#getstate" class="nav-link" data-scroll-target="#getstate">getState</a>
 <ul class="collapse">
-<li><a href="#getstate" class="nav-link" data-scroll-target="#getstate">getState</a></li>
+<li><a href="#project-with-remotes" class="nav-link" data-scroll-target="#project-with-remotes">Project with remotes</a></li>
+<li><a href="#project-with-no-remotes" class="nav-link" data-scroll-target="#project-with-no-remotes">Project with no remotes</a></li>
+<li><a href="#no-project-and-no-remotes" class="nav-link" data-scroll-target="#no-project-and-no-remotes">No project and no remotes</a></li>
 </ul></li>
 </ul>
 </nav></div>
@@ -847,12 +851,13 @@
 </tr>
 </tbody>
 </table>
-<section id="getstate" class="level3">
-<h3 class="anchored" data-anchor-id="getstate">getState</h3>
+</section>
+<section id="getstate" class="level2">
+<h2 class="anchored" data-anchor-id="getstate">getState</h2>
 <p>The <code>getState()</code> method returns the path to the currently loaded .Rproj (if any) and any git remotes.</p>
 <p>The results come via the callback. Here are some examples.</p>
-<section id="project-with-remotes" class="level4">
-<h4 class="anchored" data-anchor-id="project-with-remotes">Project with remotes</h4>
+<section id="project-with-remotes" class="level3">
+<h3 class="anchored" data-anchor-id="project-with-remotes">Project with remotes</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"message"</span><span class="fu">:</span> <span class="st">"getState"</span><span class="fu">,</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"callerID"</span><span class="fu">:</span> <span class="st">"abcd"</span><span class="fu">,</span></span>
@@ -873,8 +878,8 @@
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="project-with-no-remotes" class="level4">
-<h4 class="anchored" data-anchor-id="project-with-no-remotes">Project with no remotes</h4>
+<section id="project-with-no-remotes" class="level3">
+<h3 class="anchored" data-anchor-id="project-with-no-remotes">Project with no remotes</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"message"</span><span class="fu">:</span> <span class="st">"getState"</span><span class="fu">,</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"callerID"</span><span class="fu">:</span> <span class="st">"abcd"</span><span class="fu">,</span></span>
@@ -882,8 +887,8 @@
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"remotes"</span><span class="fu">:</span> <span class="ot">[]</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="no-project-and-no-remotes" class="level4">
-<h4 class="anchored" data-anchor-id="no-project-and-no-remotes">No project and no remotes</h4>
+<section id="no-project-and-no-remotes" class="level3">
+<h3 class="anchored" data-anchor-id="no-project-and-no-remotes">No project and no remotes</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"message"</span><span class="fu">:</span> <span class="st">"getState"</span><span class="fu">,</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"callerID"</span><span class="fu">:</span> <span class="st">"abcd"</span><span class="fu">,</span></span>
@@ -891,7 +896,6 @@
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"remotes"</span><span class="fu">:</span> <span class="ot">[]</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- -->
-</section>
 </section>
 </section>
 </main>

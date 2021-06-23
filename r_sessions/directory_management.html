@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -788,17 +789,17 @@
 <h3 class="anchored" data-anchor-id="working-directories">Working Directories</h3>
 <p>The default working directory for both new R sessions and new R projects is the user’s home directory (<code>~</code>). You can change this behavior via the <code>session-default-working-dir</code> and <code>session-default-new-project-dir</code> configuration parameters within the <code>rsession.conf</code> config file.</p>
 <p>For example, the set the default values to “~/working” and “~/projects” you’d use the following configuration:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-default-working-dir</span><span class="ot">=</span><span class="st">~/working</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-default-new-project-dir</span><span class="ot">=</span><span class="st">~/projects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-default-working-dir</span><span class="ot">=</span><span class="st">~/working</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">session-default-new-project-dir</span><span class="ot">=</span><span class="st">~/projects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should ensure that users have the permissions required to write to the specified default directories. The specified directories will be automatically created if they don’t already exist.</p>
 <p>Note that these settings control only the <em>default</em> working and new project directories (users can still override these settings locally if they choose to).</p>
 </section>
 <section id="restricted-directories" class="level3">
 <h3 class="anchored" data-anchor-id="restricted-directories">Restricted Directories</h3>
 <p>Like most IDEs, RStudio allows users to open and edit any file to which they have read or write permission (respectively) at the filesystem level. However, in some environments it’s important to restrict access to system files from web front ends. RStudio can optionally enforce a restrictive mode for most directories, which will prevent users from using the IDE to open files in the directories. This is enabled by the <code>restrict-directory-view</code> option as follows:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">restrict-directory-view</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">restrict-directory-view</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When enabled, RStudio users will only have access to open files from the following in the IDE:</p>
 <ul>
 <li>Home directories</li>
@@ -807,8 +808,8 @@
 <li>User/session specific temporary directories</li>
 </ul>
 <p>If you wish to allow users to open and view files in a directory that RStudio would ordinarily forbid access to, you can change the <code>directory-view-whitelist</code> setting. This setting accepts a list of directories to enable access to, separated by <code>:</code>. For example, if you wish to allow users to open files from <code>/var/run</code> and <code>/usr/share/examples</code>:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">directory-view-whitelist</span><span class="ot">=</span><span class="st">/var/run:/usr/share/examples</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">directory-view-whitelist</span><span class="ot">=</span><span class="st">/var/run:/usr/share/examples</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this setting only applies to RStudio’s IDE web interface. Users will still have access to other files on the system using R itself and/or the Terminal interface. Follow security best practices by relying on operating system-level file permissions, not front end restrictions, to guard access to sensitive content and files.</p>
 <!-- -->
 </section>

@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -796,8 +797,8 @@
 </ul>
 <p>The default global setting is <code>ask</code> and the default project-level setting is derived from the current global setting (these options can be modified by end users via the <em>Global Options</em> and <em>Project Options</em> dialogs respectively).</p>
 <p>The default global setting can also be changed via the <code>session-save-action-default</code> configuration parameter in the <code>rsession.conf</code> config file. For example, to change the default value to <code>no</code> you would use this:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-save-action-default</span><span class="ot">=</span><span class="kw">no</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-save-action-default</span><span class="ot">=</span><span class="kw">no</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this setting is specified in the <code>rsession.conf</code> config file and takes effect the next time a user launches an R session (rather than requiring a full restart of the server).</p>
 </section>
 <section id="suspend-and-resume" class="level3">
@@ -806,8 +807,8 @@
 <section id="session-timeout" class="level4">
 <h4 class="anchored" data-anchor-id="session-timeout">Session Timeout</h4>
 <p>To configure the amount of idle time to wait before suspending sessions you can use the <code>session-timeout-minutes</code> setting in the <code>/etc/rstudio/rsession.conf</code> file. For example:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-minutes</span><span class="ot">=</span><span class="dv">360</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-minutes</span><span class="ot">=</span><span class="dv">360</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The default value if none is explicitly specified is 120 minutes.</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -828,8 +829,8 @@ Important
 <li>When the R prompt is not in it’s default state (e.g.&nbsp;during a debugging session)</li>
 </ol>
 <p>You can also specify that R sessions should never be suspended by setting the <code>session-timeout-minutes</code> to zero. For example:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-minutes</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-minutes</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can also set session timeouts on a per-user or per-group basis, see the <a href="../r_sessions/user_and_group_profiles.html">User and Group Profiles</a> section for details.</p>
 <p>If you simply want the session process to quit (and lose all unsaved work in the process) instead of suspending to disk, you can turn the <code>session-timeout-suspend</code> option off, like so:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-minutes</span><span class="ot">=</span><span class="dv">90</span></span>
@@ -846,27 +847,39 @@ Important
 <h4 class="anchored" data-anchor-id="resume-and-.rprofile">Resume and .Rprofile</h4>
 <p>By default the <code>Rprofile.site</code> and <code>.Rprofile</code> files are not re-run when a session is resumed (it’s presumed that all of their side-effects are accounted for by simply restoring loaded packages, options, environment variables, etc.).</p>
 <p>In some configurations it might be desirable to force the re-execution of profile files. There is an end user option that controls this on the <em>General</em> options pane which defaults to false. However, server administrators may wish to ensure that this option defaults to true. To do this you use the <code>session-rprofile-on-resume-default</code> option. For example:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-rprofile-on-resume-default</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-rprofile-on-resume-default</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this setting is specified in the <code>rsession.conf</code> config file and takes effect the next time a user launches an R session (rather than requiring a full restart of the server).</p>
 </section>
 <section id="child-processes" class="level4">
 <h4 class="anchored" data-anchor-id="child-processes">Child Processes</h4>
 <p>By default, when sessions are quit or suspended, child processes created in the session will continue to run. You can specify whether or not that should occur by specifying the <code>session-quit-child-processes-on-exit</code> setting in <code>/etc/rstudio/rsession.conf</code>. The allowed values are <code>1</code> or <code>0</code> to quit child processes or leave them running, respectively.</p>
 <p>For example, to quit child processes when the session exits:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-quit-child-processes-on-exit</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-quit-child-processes-on-exit</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this setting is specified in the <code>rsession.conf</code> config file and takes effect the next time a user launches an R session (rather than requiring a full restart of the server). Also, users can specifically override this setting in their project settings.</p>
 </section>
 <section id="session-timeout-kill" class="level4 pro-header">
 <h4 class="pro-header anchored" data-anchor-id="session-timeout-kill">Session Timeout Kill</h4>
 <p>To configure the amount of time to wait before forcefully killing and destroying sessions you can use the <code>session-timeout-kill-hours</code> option in the <code>/etc/rstudio/rsession.conf</code> file. This allows you to specify how much time should pass before a session is automatically cleaned up. This is the length of time during which a session exists without user input (<strong>regardless of computation status</strong>) allowing you to automatically reclaim temporary disk space used by the session, and to stop its processes and children.</p>
 <p>This setting should only be used to ensure that any sessions that users have forgotten about are destroyed, reclaiming valuable disk space.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Sessions can be destroyed while important computations are executing</strong>. The user whose session is cleaned will also lose all unsaved code and data.</p>
+</div>
+</div>
 <p>This setting can also be used in conjunction with <code>session-timeout-minutes</code>, allowing already suspended sessions to be cleaned up.</p>
 <p>For example:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-kill-hours</span><span class="ot">=</span><span class="dv">48</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-timeout-kill-hours</span><span class="ot">=</span><span class="dv">48</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The default value if none is explicitly specified is 0 hours, meaning sessions will never be killed and destroyed automatically. The supplied value should be an integer representing the amount of hours a session can be idle before being killed.</p>
 </section>
 </section>
@@ -882,7 +895,7 @@ Important
 <section id="user-state-storage" class="level3">
 <h3 class="anchored" data-anchor-id="user-state-storage">User State Storage</h3>
 <p>By default, RStudio stores each user’s state in their home directory, in the following folder:</p>
-<pre><code>~/.local/share/rstudio</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">~/.local/share/rstudio</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This folder contains information on all of a user’s active RStudio sessions, including all of the session data when the session is suspended. It also includes various internal RStudio state. Deleting it will result in a factory-fresh RStudio experience for the user, with the exception of their per-user settings (which are described in <a href="customizing_session_settings.html">Customizing Session Settings</a>).</p>
 <p>Because this folder can include arbitrary amounts of suspended session data, it can become very large. We recommend ensuring that each user has sufficient disk space quota to store suspended sessions along with the data for their R projects, and using other controls to clean up old data (such as <code>session-timeout-kill-hours</code>)</p>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -942,7 +955,7 @@ Important
 </section>
 <section id="job-launcher-mounts" class="level4">
 <h4 class="anchored" data-anchor-id="job-launcher-mounts">Job Launcher Mounts</h4>
-<p>Finally, if you are using containerized sessions with the Job Launcher, and you mount RStudio’s user state data to a folder outside their home directory, you must ensure that directory is mounted into the containers in addition to the home directory itself. See [Launcher Mounts] for more information about mounting folders into containerized sessions.</p>
+<p>Finally, if you are using containerized sessions with the Job Launcher, and you mount RStudio’s user state data to a folder outside their home directory, you must ensure that directory is mounted into the containers in addition to the home directory itself. See <a href="../job_launcher/configuration.html#launcher-mounts">Launcher Mounts</a> for more information about mounting folders into containerized sessions.</p>
 <!-- -->
 </section>
 </section>

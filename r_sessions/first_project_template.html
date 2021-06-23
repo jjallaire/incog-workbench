@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -787,8 +788,8 @@
 <section id="overview" class="level3">
 <h3 class="anchored" data-anchor-id="overview">Overview</h3>
 <p>RStudio allows you to specify a first project to automatically open for first time users of the system. To do this, set the <code>session-first-project-template-path</code> parameter in <code>rsession.conf</code> to an RStudio project directory. This directory will be copied into the user’s home directory upon first running the IDE, and will automatically open the project contained within. For example:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">session-first-project-template-path</span><span class="ot">=</span><span class="st">/etc/rstudio/welcome-project</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">session-first-project-template-path</span><span class="ot">=</span><span class="st">/etc/rstudio/welcome-project</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In the example above, the project located within /etc/rstudio/welcome-project would be copied to users’ home directories when first starting RStudio, and the project file <code>welcome-project.Rproj</code> would be run.</p>
 <p>The project file must be named the same as the directory it is contained in. For the above example, the project file must be named <code>welcome-project.Rproj</code>. In addition, you must ensure that the project directory is fully readable and executable by your users, as they will be copying the contents of the directory into their home directory.</p>
 <p>If you copy an existing project to be used as a project template, ensure that you delete the RStudio metadata folders and files contained within the project directory. You will want to ensure you delete the following:</p>
@@ -798,15 +799,15 @@
 <li><code>.RData</code></li>
 </ul>
 <p>If you are creating the project template for the first time, the project (.Rproj) file must contain the version specifier at a minimum. For example:</p>
-<p><em>welcome-project.Rproj</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Version: 1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># welcome-project.Rproj</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">Version: 1.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="project-defaultopendocs" class="level3">
 <h3 class="anchored" data-anchor-id="project-defaultopendocs">Project DefaultOpenDocs</h3>
 <p>Project files allow you to specify default documents that should be opened when a project is opened for the very first time. For example, you could have your welcome project bring up explanatory documents to help guide your users. To do this, add the <code>DefaultOpenDocs</code> line to the .Rproj file. For example:</p>
-<p><em>welcome-project.Rproj</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Version: 1.0</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">DefaultOpenDocs: welcome.txt:firstMarkdown.Rmd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># welcome-project.Rproj</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">Version: 1.0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">DefaultOpenDocs: welcome.txt:firstMarkdown.Rmd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>DefaultOpenDocs</code> parameters specifies a list of files to automatically be opened when the project is opened for the first time, separated by a <code>:</code> character. These files are relative paths to the project directory. Only files contained within the project directory can be opened.</p>
 <!-- -->
 </section>

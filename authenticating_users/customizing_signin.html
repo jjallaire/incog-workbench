@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -784,8 +785,8 @@
 <ul>
 <li><p>Providing a file at <code>/etc/rstudio/login.html</code> that includes additional HTML to include within the login page; or</p></li>
 <li><p>Specifying the <code>auth-login-page-html</code> option within the <code>rserver.conf</code> config file which points to an alternate location for the login HTML file. For example, the following specifies that the file located at <code>/opt/config/rstudio-login.html</code> should be included within the login page:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-login-page-html</span><span class="ot">=</span><span class="st">/opt/config/rstudio-login.html</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-login-page-html</span><span class="ot">=</span><span class="st">/opt/config/rstudio-login.html</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 <p>The contents of the specified HTML file will be included after the standard login header and login username/password form. If you want to modify the appearance of the header and/or add content above the username/password form, you can use CSS and JavaScript within your login.html file to modify the page after it loads.</p>
 <p>The same can be done to tweak the display of the sign in page for remote RDP sessions as well, with either the <code>/etc/rstudio/rdplogin.html</code> file, or the <code>auth-rdp-login-page-html</code> setting within <code>rserver.conf</code>.</p>

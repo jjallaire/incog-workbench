@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -788,19 +789,19 @@
 <h3 class="anchored" data-anchor-id="minimum-user-id">Minimum User Id</h3>
 <p>By default RStudio only allows normal (as opposed to system) users to successfully authenticate. The minimum user id is determined by reading the <code>UID_MIN</code> value from the <code>/etc/login.defs</code> file. If the file doesn’t exist or <code>UID_MIN</code> isn’t defined within it then a default value of 1000 is used.</p>
 <p>You change the minimum user id by specifying the <code>auth-minimum-user-id</code> option. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-minimum-user-id</span><span class="ot">=</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-minimum-user-id</span><span class="ot">=</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that it’s possible that your PAM configuration is also applying a constraint on user-ids (see the <a href="../authenticating_users/pam_authentication.html#default-pam-configuration">Default PAM Configuration</a> section above for an example). In this case you should ensure that the <code>auth-minimum-user-id</code> is consistent with the value specified in your PAM configuration.</p>
 <p>If your users are using very large UIDs (above 1048575/0xFFFFF), it is <em>strongly</em> recommended to set the <code>auth-minimum-user-id</code> value to enable RStudio to make better assumptions when mapping user identifiers to projects.</p>
 </section>
 <section id="restricting-by-group" class="level3">
 <h3 class="anchored" data-anchor-id="restricting-by-group">Restricting by Group</h3>
 <p>You can specify that only users of certain groups are allowed to access RStudio. To do this you use the <code>auth-required-user-group</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-required-user-group</span><span class="ot">=</span><span class="st">rstudio-users</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-required-user-group</span><span class="ot">=</span><span class="st">rstudio-users</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can specify a single group as the above example does or a comma-delimited list of groups. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-required-user-group</span><span class="ot">=</span><span class="st">analysts,admins,rstudio-users</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-required-user-group</span><span class="ot">=</span><span class="st">analysts,admins,rstudio-users</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that this change will not take effect until the server is restarted.</p>
 <section id="creating-and-managing-group-membership" class="level4">
 <h4 class="anchored" data-anchor-id="creating-and-managing-group-membership">Creating and Managing Group Membership</h4>

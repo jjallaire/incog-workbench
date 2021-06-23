@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -782,10 +783,10 @@
 <h2 class="pro-header anchored" data-anchor-id="ip-access-rules">IP Access Rules</h2>
 <p>RStudio Workbench can be configured to deny access to specific IP addresses or ranges of addresses. Access rules are defined in the configuration file <code>/etc/rstudio/ip-rules</code></p>
 <p>Access rules are established using the <code>allow</code> and <code>deny</code> directives and are processed in order, with the first matching rule governing whether a given address is allowed or denied. For example, to allow only clients within the <code>192.168.1.0/24</code> subnet but also deny access to <code>192.168.1.10</code> you would use these rules:</p>
-<p><em>/etc/rstudio/ip-rules</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">deny    192.168.1.10</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">allow   192.168.1.0/24</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">deny    all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/ip-rules</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">deny    192.168.1.10</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">allow   192.168.1.0/24</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">deny    all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>All clients outside of the specified subset are denied access because of the <code>deny all</code> rule at the end of the configuration.</p>
 <p>Note that changes to the configuration will not take effect until the server is restarted.</p>
 <!-- -->

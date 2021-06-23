@@ -669,6 +669,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -734,7 +735,7 @@
 </section>
 <section id="user-home-directories" class="level4">
 <h4 class="anchored" data-anchor-id="user-home-directories">User Home Directories</h4>
-<p>RStudio interacts frequently with user home directories. If you mount home directories with NFS, we recommend using the <code>async</code> mount option along with a modern, high-throughput network connection that can support many simultaneous clients. If you’d like your users to be able to share their projects with each other, see the section on [Project Sharing] for additional NFS requirements.</p>
+<p>RStudio interacts frequently with user home directories. If you mount home directories with NFS, we recommend using the <code>async</code> mount option along with a modern, high-throughput network connection that can support many simultaneous clients. If you’d like your users to be able to share their projects with each other, see the section on <a href="../r_sessions/project_sharing.html">Project Sharing</a> for additional NFS requirements.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -751,7 +752,7 @@ Note
 </section>
 <section id="database-connectivity" class="level4">
 <h4 class="anchored" data-anchor-id="database-connectivity">Database Connectivity</h4>
-<p>Since version 1.4, RStudio also requires database connectivity. In most cases, no additional configuration is needed - a SQLite database will be created and used automatically. However, if you are running a load-balanced setup, you will be required to set up a PostgreSQL database for RStudio Workbench to connect to; if one is not configured, the service will refuse to start. If you are using load balancing, make sure that you have an available PostgreSQL database to use <strong>before</strong> installation! See the [Database] section for more information.</p>
+<p>Since version 1.4, RStudio also requires database connectivity. In most cases, no additional configuration is needed - a SQLite database will be created and used automatically. However, if you are running a load-balanced setup, you will be required to set up a PostgreSQL database for RStudio Workbench to connect to; if one is not configured, the service will refuse to start. If you are using load balancing, make sure that you have an available PostgreSQL database to use <strong>before</strong> installation! See the <a href="../database/database.html">Database</a> section for more information.</p>
 <!-- -->
 </section>
 </section>

@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -802,12 +803,12 @@
 <p>The administrative dashboard is accessed at the following URL:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>http://<span class="kw">&lt;server-address&gt;</span>/admin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The administrative dashboard is disabled by default. To enable it you set the <code>admin-enabled</code> option. You can also specify that only users of certain group have access to the dashboard using the <code>admin-group</code> option. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-group</span><span class="ot">=</span><span class="st">rstudio-admins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-enabled</span><span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-group</span><span class="ot">=</span><span class="st">rstudio-admins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can specify a single group as the above example does or a comma-delimited list of groups. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-group</span><span class="ot">=</span><span class="st">server-admins,rstudio-admins,domain-admins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-group</span><span class="ot">=</span><span class="st">server-admins,rstudio-admins,domain-admins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that changes to the configuration will not take effect until the server is restarted.</p>
 </section>
 <section id="administrator-superusers" class="level3">
@@ -819,22 +820,22 @@
 <li>Login to RStudio as any other server user</li>
 </ol>
 <p>Administrative superusers do not have root privilege on the system, but rather have a narrow set of delegated privileges that are useful in managing and supporting the server. You can define the users with this privilege using the <code>admin-superuser-group</code> setting. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-superuser-group</span><span class="ot">=</span><span class="st">rstudio-superuser-admins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-superuser-group</span><span class="ot">=</span><span class="st">rstudio-superuser-admins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that as with the admin groups above, you can specify a single group as the above example does or a comma-delimited list of groups. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-superuser-group</span><span class="ot">=</span><span class="st">rstudio-superuser-admins,domain-admins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-superuser-group</span><span class="ot">=</span><span class="st">rstudio-superuser-admins,domain-admins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Changes to the configuration will not take effect until the server is restarted. Admin superusers can also be added via the command line. See <a href="../server_management/core_administrative_tasks.html#adding-users-to-the-user-database">Adding users to the user database</a>.</p>
 <section id="user-impersonation-restrictions" class="level4">
 <h4 class="anchored" data-anchor-id="user-impersonation-restrictions">User Impersonation Restrictions</h4>
-<p>Note that the ability to login as other users and assume control of existing sessions is not available if you are authenticating with [SAML SSO], [Google Accounts] or proxied authentication. This is because these authentication mechanisms use a different user-identity mechanism which isn’t compatible with the way that user session impersonation is implemented.</p>
+<p>Note that the ability to login as other users and assume control of existing sessions is not available if you are authenticating with <a href="../authenticating_users/saml_sso.html">SAML SSO</a>, <a href="../authenticating_users/google_accounts.html">Google Accounts</a> or proxied authentication. This is because these authentication mechanisms use a different user-identity mechanism which isn’t compatible with the way that user session impersonation is implemented.</p>
 </section>
 </section>
 <section id="server-log-time-zone" class="level3">
 <h3 class="anchored" data-anchor-id="server-log-time-zone">Server Log Time Zone</h3>
 <p>You can control the time zone in which the server logs are displayed in the admin dashboard by the use of the <code>admin-monitor-log-use-server-time-zone</code> option. For example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-monitor-log-use-server-time-zone</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">admin-monitor-log-use-server-time-zone</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Setting this option to <code>1</code> will display the server logs in the server’s time zone. The default value of <code>0</code> will display the log times in UTC.</p>
 </section>
 <section id="licensing-considerations" class="level3">

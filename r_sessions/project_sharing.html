@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -802,8 +803,8 @@
 <h4 class="anchored" data-anchor-id="shared-projects-root-directory">Shared Projects Root Directory</h4>
 <p>RStudio cannot grant access to shared projects in arbritary locations. This would lead to unintended changes to the file system ACLs.</p>
 <p>By default only projects stored within the users’ home directories can be shared. If you want share projects in a different location you can configure RStudio with an additional root directory for all users:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">server-project-sharing-root-dir</span><span class="ot">=</span><span class="st">/projects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">server-project-sharing-root-dir</span><span class="ot">=</span><span class="st">/projects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="project-sharing-and-nfs" class="level4">
 <h4 class="anchored" data-anchor-id="project-sharing-and-nfs">Project Sharing and NFS</h4>
@@ -828,8 +829,8 @@
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">setfacl</span> <span class="at">-m</span> u:user2:x /home/user1/project</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>where <code>/home/user1/project</code> is the full path to a directory owned by <code>user1</code>, and <code>user2</code> is another valid user on the system.</p>
 <p>Because many Linux systems support POSIX compatible ACLs on the native filesystem, RStudio uses them by default. You can also specify them explicitly as follows:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">nfs-acl-version</span><span class="ot">=</span><span class="st">nfsv3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">nfs-acl-version</span><span class="ot">=</span><span class="st">nfsv3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="nfsv4" class="level5">
 <h5 class="anchored" data-anchor-id="nfsv4">NFSv4</h5>
@@ -843,10 +844,10 @@
 <p><strong>Using user name and domain security principals</strong></p>
 <p>NFSv4 ACLs differ from NFSv3 ACLs in that they can associate a <em>domain</em> with each user named in the access control list. This is typically the same as the domain part of the machine’s host name, but can be any string that the NFSv4 client and server agree on. On Linux systems, the domain can be set in <code>/etc/idmapd.conf</code>.</p>
 <p>Tell RStudio the NFSv4 domain you want to use as follows:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">nfs-acl-version</span><span class="ot">=</span><span class="st">nfsv4</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">nfs4-principal-type</span><span class="ot">=</span><span class="st">username</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">nfs4-domain</span><span class="ot">=</span><span class="st">mydomain.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">nfs-acl-version</span><span class="ot">=</span><span class="st">nfsv4</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">nfs4-principal-type</span><span class="ot">=</span><span class="st">username</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">nfs4-domain</span><span class="ot">=</span><span class="st">mydomain.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Using user ID security principals</strong></p>
 <p>In some environments, it may not be possible to resolve fully qualified <code>user@domain</code> security principals on all of the nodes running RStudio Workbench. This is common on e.g., Kubernetes nodes which are not domain-joined. In this case, it’s possible to use raw User ID (UID) values as security principals in the access control list. You can tell RStudio to write raw UIDs as security principals in NFSv4 access control lists as follows:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">nfs-acl-version</span><span class="ot">=</span><span class="st">nfsv4</span></span>
@@ -857,8 +858,8 @@
 <h4 class="anchored" data-anchor-id="user-visibility">User Visibility</h4>
 <p>Projects can only be shared with users with provisioned local system accounts unless LDAP is used for local account provisioning.</p>
 <p>The RStudio user database is scanned to list Project Sharing users. This method of user scanning avoids making calls to the system to determine the available users, and prevents making queries to the system password database (such as LDAP). However, it only lists users who have previously logged in to RStudio. To instead show all users on the server, set the following configuration to scan the system password database:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">project-sharing-enumerate-server-users</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">project-sharing-enumerate-server-users</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When scanning via the system password database, if you’re using <a href="https://fedoraproject.org/wiki/Features/SSSD">sssd</a> with LDAP, you may need to enable user enumeration so that RStudio Workbench can search the directory to create a list of users you can share a project with. To do this, set the following in your <em>sssd.conf</em> file:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[domain/&lt;domainname&gt;]</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">enumerate </span><span class="ot">=</span><span class="st"> </span><span class="kw">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -870,8 +871,8 @@
 <p>To use Project Sharing, a directory must be specified to which all users on the server can read and write. It must also have the <a href="https://en.wikipedia.org/wiki/Sticky_bit">sticky bit</a> set, so that users cannot remove each others’ content. In a single-server installation, RStudio uses this location by default:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/var/lib/rstudio-server/shared-storage</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In a load-balanced configuration, however, RStudio does not provide a default, so it is necessary to provision a path both visible to and writable by all users on the system (typically on the same filesystem on which home directories are mounted). This path can be supplied to RStudio Workbench via the <code>server-shared-storage-path</code> option, for example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">server-shared-storage-path</span><span class="ot">=</span><span class="st">/shared/rstudio-server/shared-storage</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="dt">server-shared-storage-path</span><span class="ot">=</span><span class="st">/shared/rstudio-server/shared-storage</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>server-shared-storage-path</code> option (described above) configures the path used for shared project storage. Note that this storage contains only <em>links</em> to shared projects, not the projects themselves, so requires a very small amount of physical storage.</p>
 <section id="launcher-considerations" class="level5">
 <h5 class="anchored" data-anchor-id="launcher-considerations">Launcher Considerations</h5>
@@ -886,8 +887,8 @@
 <section id="disabling-project-sharing" class="level3">
 <h3 class="anchored" data-anchor-id="disabling-project-sharing">Disabling Project Sharing</h3>
 <p>Project Sharing is enabled by default however you can disable it using the <code>server-project-sharing</code> option, for example:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">server-project-sharing</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">server-project-sharing</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- -->
 </section>
 </section>

@@ -669,6 +669,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -733,7 +734,7 @@
 <p>PAM recommendations for user provisioning:</p>
 <ul>
 <li>If you are using PAM authentication to connect to an external authentication provider, you can use a PAM module like <a href="https://linux.die.net/man/8/pam_mkhomedir"><code>pam_mkhomedir</code></a> to automatically create the users’ home directories on login.</li>
-<li>User provisioning requires PAM sessions to be used is most cases. See the [PAM Sessions] section for details on how RStudio can be configured to use those.</li>
+<li>User provisioning requires PAM sessions to be used is most cases. See the <a href="../r_sessions/pam_sessions.html">PAM Sessions</a> section for details on how RStudio can be configured to use those.</li>
 <li>If you are using SAML, OpenID or Proxied authentication and local system accounts are automatically created by <code>sssd</code>, a PAM configuration with the module <a href="https://linux.die.net/man/8/pam_rootok"><code>pam_rootok</code></a> must be used, since PAM sessions will be started by RStudio using <code>root</code> in the behalf of the actual user.</li>
 </ul>
 <!-- -->

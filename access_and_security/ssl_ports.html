@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -789,18 +790,18 @@
 <li>The server also listens on port 80 and redirects all requests to port 443 (allowing users to specify the domain without the https protocol and be automatically redirected to the secure port)</li>
 </ol>
 <p>However, if SSL is bound to another port (using the <code>www-port</code> option) then the automatic redirect behavior is not enabled. It’s also possible to disable automatic SSL redirects entirely using the <code>ssl-redirect-http</code> option as follows:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-redirect-http</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-redirect-http</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that changes to the configuration will not take effect until the server is restarted.</p>
 <section id="strict-transport-security" class="level3">
 <h3 class="anchored" data-anchor-id="strict-transport-security">Strict Transport Security</h3>
 <p>When SSL is enabled, RStudio Workbench sends an HTTP Strict Transport Security (HSTS) header, <code>Strict-Transport-Security</code>, by default on outbound responses. This header tells the browser to forbid all HTTP connections to the domain for a period of time.</p>
 <p>RStudio Workbench sets this period of time to 1 day (84600 seconds) by default, because if HTTPS issues arise it can be difficult to address them when the browser is locked to HTTPS because of HSTS. Once you are confident that your HTTPS setup is correct, you can increase the period by specifying the desired number of seconds in the <code>ssl-hsts-max-age</code> option. For example, to lock browsers to HTTPS for one year:</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-hsts-max-age</span><span class="ot">=</span><span class="dv">31536000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-hsts-max-age</span><span class="ot">=</span><span class="dv">31536000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If all subdomains of the server on which RStudio Workbench is hosted support HSTS, you can extend HSTS protection to them as well with the <code>ssl-hsts-include-subdomains</code> option. This doesn’t happen by default since RStudio Workbench does not know what other services it’s sharing a domain with, but it’s a recommended security best practice, so you should turn it on if you can.</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-hsts-include-subdomains</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">ssl-hsts-include-subdomains</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Finally, we do not recommend disabling HSTS, but if you need to, you can do so by setting <code>ssl-hsts=0</code>.</p>
 <!-- -->
 </section>

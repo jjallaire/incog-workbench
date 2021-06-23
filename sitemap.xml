@@ -2,518 +2,518 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/rstudio_ide_commands/rstudio_ide_commands.html</loc>
-    <lastmod>2021-06-22T15:51:28.564Z</lastmod>
+    <lastmod>2021-06-23T03:52:41.942Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/professional_support.html</loc>
-    <lastmod>2021-06-22T15:51:28.832Z</lastmod>
+    <lastmod>2021-06-23T03:52:42.294Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/accessing_the_server.html</loc>
-    <lastmod>2021-06-22T15:51:29.112Z</lastmod>
+    <lastmod>2021-06-23T03:52:42.642Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/introduction.html</loc>
-    <lastmod>2021-06-22T15:51:29.344Z</lastmod>
+    <lastmod>2021-06-23T03:52:42.955Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/getting_started.html</loc>
-    <lastmod>2021-06-22T15:51:29.732Z</lastmod>
+    <lastmod>2021-06-23T03:52:43.471Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/installation.html</loc>
-    <lastmod>2021-06-22T15:51:30.144Z</lastmod>
+    <lastmod>2021-06-23T03:52:44.011Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/management_script.html</loc>
-    <lastmod>2021-06-22T15:51:30.392Z</lastmod>
+    <lastmod>2021-06-23T03:52:44.323Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/community_resources.html</loc>
-    <lastmod>2021-06-22T15:51:30.616Z</lastmod>
+    <lastmod>2021-06-23T03:52:44.615Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/getting_started/activation.html</loc>
-    <lastmod>2021-06-22T15:51:30.848Z</lastmod>
+    <lastmod>2021-06-23T03:52:44.911Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/network_port_and_address.html</loc>
-    <lastmod>2021-06-22T15:51:31.100Z</lastmod>
+    <lastmod>2021-06-23T03:52:45.239Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/access_and_security.html</loc>
-    <lastmod>2021-06-22T15:51:31.312Z</lastmod>
+    <lastmod>2021-06-23T03:52:45.543Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/ip_access_rules.html</loc>
-    <lastmod>2021-06-22T15:51:31.564Z</lastmod>
+    <lastmod>2021-06-23T03:52:45.903Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/server_permissions.html</loc>
-    <lastmod>2021-06-22T15:51:31.860Z</lastmod>
+    <lastmod>2021-06-23T03:52:46.271Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/additional_security_considerations.html</loc>
-    <lastmod>2021-06-22T15:51:32.120Z</lastmod>
+    <lastmod>2021-06-23T03:52:46.627Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/running_with_a_proxy.html</loc>
-    <lastmod>2021-06-22T15:51:32.560Z</lastmod>
+    <lastmod>2021-06-23T03:52:47.199Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/frame_origin.html</loc>
-    <lastmod>2021-06-22T15:51:32.832Z</lastmod>
+    <lastmod>2021-06-23T03:52:47.563Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/same_site_cookies.html</loc>
-    <lastmod>2021-06-22T15:51:33.092Z</lastmod>
+    <lastmod>2021-06-23T03:52:47.899Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/cookies.html</loc>
-    <lastmod>2021-06-22T15:51:33.348Z</lastmod>
+    <lastmod>2021-06-23T03:52:48.243Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/compatibility_with_safari.html</loc>
-    <lastmod>2021-06-22T15:51:33.568Z</lastmod>
+    <lastmod>2021-06-23T03:52:48.543Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/additional_headers.html</loc>
-    <lastmod>2021-06-22T15:51:33.824Z</lastmod>
+    <lastmod>2021-06-23T03:52:48.895Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/ssl_ports.html</loc>
-    <lastmod>2021-06-22T15:51:34.084Z</lastmod>
+    <lastmod>2021-06-23T03:52:49.255Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/access_and_security/secure_sockets.html</loc>
-    <lastmod>2021-06-22T15:51:34.356Z</lastmod>
+    <lastmod>2021-06-23T03:52:49.603Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/data_connectivity/connectivity_using_r_packages.html</loc>
-    <lastmod>2021-06-22T15:51:34.576Z</lastmod>
+    <lastmod>2021-06-23T03:52:49.907Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/data_connectivity/data_connectivity.html</loc>
-    <lastmod>2021-06-22T15:51:34.800Z</lastmod>
+    <lastmod>2021-06-23T03:52:50.203Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/data_connectivity/snippet_files.html</loc>
-    <lastmod>2021-06-22T15:51:35.104Z</lastmod>
+    <lastmod>2021-06-23T03:52:50.623Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/data_connectivity/connectivity_using_odbc.html</loc>
-    <lastmod>2021-06-22T15:51:35.332Z</lastmod>
+    <lastmod>2021-06-23T03:52:50.915Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/license_management/product_activation.html</loc>
-    <lastmod>2021-06-22T15:51:35.588Z</lastmod>
+    <lastmod>2021-06-23T03:52:51.223Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/license_management/license_management.html</loc>
-    <lastmod>2021-06-22T15:51:35.812Z</lastmod>
+    <lastmod>2021-06-23T03:52:51.519Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/license_management/userspace_licensing.html</loc>
-    <lastmod>2021-06-22T15:51:36.080Z</lastmod>
+    <lastmod>2021-06-23T03:52:51.835Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/license_management/floating_licensing.html</loc>
-    <lastmod>2021-06-22T15:51:36.440Z</lastmod>
+    <lastmod>2021-06-23T03:52:52.303Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/license_management/connectivity_requirements.html</loc>
-    <lastmod>2021-06-22T15:51:36.688Z</lastmod>
+    <lastmod>2021-06-23T03:52:52.635Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/license_management/evaluations.html</loc>
-    <lastmod>2021-06-22T15:51:36.920Z</lastmod>
+    <lastmod>2021-06-23T03:52:52.959Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/license_management/license_details.html</loc>
-    <lastmod>2021-06-22T15:51:37.144Z</lastmod>
+    <lastmod>2021-06-23T03:52:53.271Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/session_initialization.html</loc>
-    <lastmod>2021-06-22T15:51:37.380Z</lastmod>
+    <lastmod>2021-06-23T03:52:53.579Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/using_multiple_versions_of_r.html</loc>
-    <lastmod>2021-06-22T15:51:37.700Z</lastmod>
+    <lastmod>2021-06-23T03:52:54.024Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/managing_upgrades.html</loc>
-    <lastmod>2021-06-22T15:51:37.936Z</lastmod>
+    <lastmod>2021-06-23T03:52:54.340Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/overview.html</loc>
-    <lastmod>2021-06-22T15:51:38.160Z</lastmod>
+    <lastmod>2021-06-23T03:52:54.628Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/r_versions.html</loc>
-    <lastmod>2021-06-22T15:51:38.380Z</lastmod>
+    <lastmod>2021-06-23T03:52:54.916Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/installing_r.html</loc>
-    <lastmod>2021-06-22T15:51:38.612Z</lastmod>
+    <lastmod>2021-06-23T03:52:55.216Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_versions/configuring_default.html</loc>
-    <lastmod>2021-06-22T15:51:38.888Z</lastmod>
+    <lastmod>2021-06-23T03:52:55.588Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/rstudio_server_configuration/rstudio_server_configuration.html</loc>
-    <lastmod>2021-06-22T15:51:39.112Z</lastmod>
+    <lastmod>2021-06-23T03:52:55.868Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/rstudio_server_configuration/rsession_conf.html</loc>
-    <lastmod>2021-06-22T15:51:39.472Z</lastmod>
+    <lastmod>2021-06-23T03:52:56.356Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/rstudio_server_configuration/rserver_conf.html</loc>
-    <lastmod>2021-06-22T15:51:40.000Z</lastmod>
+    <lastmod>2021-06-23T03:52:57.060Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html</loc>
-    <lastmod>2021-06-22T15:51:41.088Z</lastmod>
+    <lastmod>2021-06-23T03:52:58.392Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening_splits/hardening.html</loc>
-    <lastmod>2021-06-22T15:51:41.328Z</lastmod>
+    <lastmod>2021-06-23T03:52:58.680Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening_splits/other.html</loc>
-    <lastmod>2021-06-22T15:51:41.584Z</lastmod>
+    <lastmod>2021-06-23T03:52:59.024Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening_splits/example_secure_configuration.html</loc>
-    <lastmod>2021-06-22T15:51:41.856Z</lastmod>
+    <lastmod>2021-06-23T03:52:59.388Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening_splits/browser_security.html</loc>
-    <lastmod>2021-06-22T15:51:42.116Z</lastmod>
+    <lastmod>2021-06-23T03:52:59.740Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening_splits/r_session_security.html</loc>
-    <lastmod>2021-06-22T15:51:42.392Z</lastmod>
+    <lastmod>2021-06-23T03:53:00.100Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening_splits/set_up_ssl.html</loc>
-    <lastmod>2021-06-22T15:51:42.672Z</lastmod>
+    <lastmod>2021-06-23T03:53:00.460Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/jupyter_sessions/configuration.html</loc>
-    <lastmod>2021-06-22T15:51:43.056Z</lastmod>
+    <lastmod>2021-06-23T03:53:00.968Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/jupyter_sessions/troubleshooting.html</loc>
-    <lastmod>2021-06-22T15:51:43.292Z</lastmod>
+    <lastmod>2021-06-23T03:53:01.276Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/jupyter_sessions/jupyter_sessions.html</loc>
-    <lastmod>2021-06-22T15:51:43.524Z</lastmod>
+    <lastmod>2021-06-23T03:53:01.612Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/jupyter_sessions/overview.html</loc>
-    <lastmod>2021-06-22T15:51:43.792Z</lastmod>
+    <lastmod>2021-06-23T03:53:01.908Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening/hardening.html</loc>
-    <lastmod>2021-06-22T15:51:44.040Z</lastmod>
+    <lastmod>2021-06-23T03:53:02.208Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening/other.html</loc>
-    <lastmod>2021-06-22T15:51:44.300Z</lastmod>
+    <lastmod>2021-06-23T03:53:02.548Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening/example_secure_configuration.html</loc>
-    <lastmod>2021-06-22T15:51:44.552Z</lastmod>
+    <lastmod>2021-06-23T03:53:02.904Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening/browser_security.html</loc>
-    <lastmod>2021-06-22T15:51:44.820Z</lastmod>
+    <lastmod>2021-06-23T03:53:03.240Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening/r_session_security.html</loc>
-    <lastmod>2021-06-22T15:51:45.092Z</lastmod>
+    <lastmod>2021-06-23T03:53:03.600Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/hardening/set_up_ssl.html</loc>
-    <lastmod>2021-06-22T15:51:45.352Z</lastmod>
+    <lastmod>2021-06-23T03:53:03.964Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/configuration.html</loc>
-    <lastmod>2021-06-22T15:51:45.688Z</lastmod>
+    <lastmod>2021-06-23T03:53:04.412Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/troubleshooting.html</loc>
-    <lastmod>2021-06-22T15:51:45.908Z</lastmod>
+    <lastmod>2021-06-23T03:53:04.724Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/installation.html</loc>
-    <lastmod>2021-06-22T15:51:46.200Z</lastmod>
+    <lastmod>2021-06-23T03:53:05.120Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/multiple_sessions.html</loc>
-    <lastmod>2021-06-22T15:51:46.420Z</lastmod>
+    <lastmod>2021-06-23T03:53:05.421Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/overview.html</loc>
-    <lastmod>2021-06-22T15:51:46.652Z</lastmod>
+    <lastmod>2021-06-23T03:53:05.725Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/vscode_sessions/vs_code_sessions.html</loc>
-    <lastmod>2021-06-22T15:51:46.884Z</lastmod>
+    <lastmod>2021-06-23T03:53:06.037Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/database/configuration.html</loc>
-    <lastmod>2021-06-22T15:51:47.216Z</lastmod>
+    <lastmod>2021-06-23T03:53:06.477Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/database/database.html</loc>
-    <lastmod>2021-06-22T15:51:47.460Z</lastmod>
+    <lastmod>2021-06-23T03:53:06.761Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/database/migration.html</loc>
-    <lastmod>2021-06-22T15:51:47.696Z</lastmod>
+    <lastmod>2021-06-23T03:53:07.073Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/auditing_and_monitoring/auditing_and_monitoring.html</loc>
-    <lastmod>2021-06-22T15:51:47.920Z</lastmod>
+    <lastmod>2021-06-23T03:53:07.365Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/auditing_and_monitoring/monitoring_configuration.html</loc>
-    <lastmod>2021-06-22T15:51:48.208Z</lastmod>
+    <lastmod>2021-06-23T03:53:07.753Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/auditing_and_monitoring/server_health_checks.html</loc>
-    <lastmod>2021-06-22T15:51:48.484Z</lastmod>
+    <lastmod>2021-06-23T03:53:08.121Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/auditing_and_monitoring/auditing_configuration.html</loc>
-    <lastmod>2021-06-22T15:51:48.868Z</lastmod>
+    <lastmod>2021-06-23T03:53:08.601Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_package_dependencies/r_package_dependencies.html</loc>
-    <lastmod>2021-06-22T15:51:49.176Z</lastmod>
+    <lastmod>2021-06-23T03:53:09.009Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/configuration.html</loc>
-    <lastmod>2021-06-22T15:51:49.464Z</lastmod>
+    <lastmod>2021-06-23T03:53:09.393Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/tutorial_api.html</loc>
-    <lastmod>2021-06-22T15:51:49.728Z</lastmod>
+    <lastmod>2021-06-23T03:53:09.729Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/tutorial_api_methods.html</loc>
-    <lastmod>2021-06-22T15:51:50.092Z</lastmod>
+    <lastmod>2021-06-23T03:53:10.261Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/tutorial_api_callbacks.html</loc>
-    <lastmod>2021-06-22T15:51:50.340Z</lastmod>
+    <lastmod>2021-06-23T03:53:10.585Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/overview.html</loc>
-    <lastmod>2021-06-22T15:51:50.588Z</lastmod>
+    <lastmod>2021-06-23T03:53:10.905Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/tutorial_api/interface.html</loc>
-    <lastmod>2021-06-22T15:51:50.984Z</lastmod>
+    <lastmod>2021-06-23T03:53:11.377Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/example.html</loc>
-    <lastmod>2021-06-22T15:51:51.240Z</lastmod>
+    <lastmod>2021-06-23T03:53:11.669Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/pam_sessions.html</loc>
-    <lastmod>2021-06-22T15:51:51.612Z</lastmod>
+    <lastmod>2021-06-23T03:53:12.181Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/notifications.html</loc>
-    <lastmod>2021-06-22T15:51:51.920Z</lastmod>
+    <lastmod>2021-06-23T03:53:12.589Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/kerberos.html</loc>
-    <lastmod>2021-06-22T15:51:52.220Z</lastmod>
+    <lastmod>2021-06-23T03:53:12.985Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/project_sharing.html</loc>
-    <lastmod>2021-06-22T15:51:52.612Z</lastmod>
+    <lastmod>2021-06-23T03:53:13.457Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/first_project_template.html</loc>
-    <lastmod>2021-06-22T15:51:52.888Z</lastmod>
+    <lastmod>2021-06-23T03:53:13.821Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/r_executable_and_libraries.html</loc>
-    <lastmod>2021-06-22T15:51:53.224Z</lastmod>
+    <lastmod>2021-06-23T03:53:14.261Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/package_installation.html</loc>
-    <lastmod>2021-06-22T15:51:53.516Z</lastmod>
+    <lastmod>2021-06-23T03:53:14.661Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/workspace_management.html</loc>
-    <lastmod>2021-06-22T15:51:53.956Z</lastmod>
+    <lastmod>2021-06-23T03:53:15.293Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/user_and_group_profiles.html</loc>
-    <lastmod>2021-06-22T15:51:54.320Z</lastmod>
+    <lastmod>2021-06-23T03:53:15.753Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/multiple_r_sessions.html</loc>
-    <lastmod>2021-06-22T15:51:54.624Z</lastmod>
+    <lastmod>2021-06-23T03:53:16.097Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/directory_management.html</loc>
-    <lastmod>2021-06-22T15:51:54.896Z</lastmod>
+    <lastmod>2021-06-23T03:53:16.453Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/r_sessions.html</loc>
-    <lastmod>2021-06-22T15:51:55.112Z</lastmod>
+    <lastmod>2021-06-23T03:53:16.750Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/session_startup_scripts.html</loc>
-    <lastmod>2021-06-22T15:51:55.420Z</lastmod>
+    <lastmod>2021-06-23T03:53:17.218Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/rstudio_connect_server.html</loc>
-    <lastmod>2021-06-22T15:51:55.688Z</lastmod>
+    <lastmod>2021-06-23T03:53:17.562Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/terminal_websockets.html</loc>
-    <lastmod>2021-06-22T15:51:55.928Z</lastmod>
+    <lastmod>2021-06-23T03:53:17.882Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/customizing_session_settings.html</loc>
-    <lastmod>2021-06-22T15:51:56.328Z</lastmod>
+    <lastmod>2021-06-23T03:53:18.414Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/r_sessions/feature_limits.html</loc>
-    <lastmod>2021-06-22T15:51:56.680Z</lastmod>
+    <lastmod>2021-06-23T03:53:18.858Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/server_management/server_management.html</loc>
-    <lastmod>2021-06-22T15:51:56.904Z</lastmod>
+    <lastmod>2021-06-23T03:53:19.150Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/server_management/automated_crash_reporting.html</loc>
-    <lastmod>2021-06-22T15:51:57.228Z</lastmod>
+    <lastmod>2021-06-23T03:53:19.530Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/server_management/logging.html</loc>
-    <lastmod>2021-06-22T15:51:57.540Z</lastmod>
+    <lastmod>2021-06-23T03:53:19.938Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/server_management/core_administrative_tasks.html</loc>
-    <lastmod>2021-06-22T15:51:58.092Z</lastmod>
+    <lastmod>2021-06-23T03:53:20.610Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/server_management/administrative_dashboard.html</loc>
-    <lastmod>2021-06-22T15:51:58.384Z</lastmod>
+    <lastmod>2021-06-23T03:53:20.998Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/configuration.html</loc>
-    <lastmod>2021-06-22T15:51:58.904Z</lastmod>
+    <lastmod>2021-06-23T03:53:21.682Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/troubleshooting.html</loc>
-    <lastmod>2021-06-22T15:51:59.164Z</lastmod>
+    <lastmod>2021-06-23T03:53:22.050Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/load_balancing.html</loc>
-    <lastmod>2021-06-22T15:51:59.396Z</lastmod>
+    <lastmod>2021-06-23T03:53:22.354Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/running_the_launcher.html</loc>
-    <lastmod>2021-06-22T15:51:59.620Z</lastmod>
+    <lastmod>2021-06-23T03:53:22.642Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/overview.html</loc>
-    <lastmod>2021-06-22T15:51:59.848Z</lastmod>
+    <lastmod>2021-06-23T03:53:22.958Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/job_launcher.html</loc>
-    <lastmod>2021-06-22T15:52:00.080Z</lastmod>
+    <lastmod>2021-06-23T03:53:23.274Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/job_launcher/creating_plugins.html</loc>
-    <lastmod>2021-06-22T15:52:00.300Z</lastmod>
+    <lastmod>2021-06-23T03:53:23.566Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/configuration.html</loc>
-    <lastmod>2021-06-22T15:52:00.740Z</lastmod>
+    <lastmod>2021-06-23T03:53:24.130Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/access_and_availability.html</loc>
-    <lastmod>2021-06-22T15:52:01.024Z</lastmod>
+    <lastmod>2021-06-23T03:53:24.490Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/load_balancing.html</loc>
-    <lastmod>2021-06-22T15:52:01.280Z</lastmod>
+    <lastmod>2021-06-23T03:53:24.806Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/balancing_methods.html</loc>
-    <lastmod>2021-06-22T15:52:01.556Z</lastmod>
+    <lastmod>2021-06-23T03:53:25.182Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/load_balancing_vs_job_launcher.html</loc>
-    <lastmod>2021-06-22T15:52:01.812Z</lastmod>
+    <lastmod>2021-06-23T03:53:25.494Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/load_balancing/overview.html</loc>
-    <lastmod>2021-06-22T15:52:02.044Z</lastmod>
+    <lastmod>2021-06-23T03:53:25.806Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/proxied_authentication.html</loc>
-    <lastmod>2021-06-22T15:52:02.388Z</lastmod>
+    <lastmod>2021-06-23T03:53:26.286Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/pam_authentication.html</loc>
-    <lastmod>2021-06-22T15:52:02.732Z</lastmod>
+    <lastmod>2021-06-23T03:53:26.718Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/user_provisioning.html</loc>
-    <lastmod>2021-06-22T15:52:02.968Z</lastmod>
+    <lastmod>2021-06-23T03:53:27.026Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/restricting_access.html</loc>
-    <lastmod>2021-06-22T15:52:03.228Z</lastmod>
+    <lastmod>2021-06-23T03:53:27.390Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/openid_connect_authentication.html</loc>
-    <lastmod>2021-06-22T15:52:03.556Z</lastmod>
+    <lastmod>2021-06-23T03:53:27.871Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/authenticating_users.html</loc>
-    <lastmod>2021-06-22T15:52:03.812Z</lastmod>
+    <lastmod>2021-06-23T03:53:28.191Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/authentication_migration.html</loc>
-    <lastmod>2021-06-22T15:52:04.080Z</lastmod>
+    <lastmod>2021-06-23T03:53:28.535Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/saml_sso.html</loc>
-    <lastmod>2021-06-22T15:52:04.580Z</lastmod>
+    <lastmod>2021-06-23T03:53:29.147Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/google_accounts.html</loc>
-    <lastmod>2021-06-22T15:52:04.908Z</lastmod>
+    <lastmod>2021-06-23T03:53:29.583Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/authorization_timeout.html</loc>
-    <lastmod>2021-06-22T15:52:05.213Z</lastmod>
+    <lastmod>2021-06-23T03:53:29.947Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/customizing_signin.html</loc>
-    <lastmod>2021-06-22T15:52:05.485Z</lastmod>
+    <lastmod>2021-06-23T03:53:30.299Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/authenticating_users/pam_basics.html</loc>
-    <lastmod>2021-06-22T15:52:05.753Z</lastmod>
+    <lastmod>2021-06-23T03:53:30.603Z</lastmod>
   </url>
   <url>
     <loc>https:/docs.rstudio.com/ide/server-pro/index.html</loc>
-    <lastmod>2021-06-22T15:52:05.997Z</lastmod>
+    <lastmod>2021-06-23T03:53:30.919Z</lastmod>
   </url>
 </urlset>

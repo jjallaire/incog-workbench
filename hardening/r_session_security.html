@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -791,21 +792,21 @@
 <section id="limit-idle-time" class="level3">
 <h3 class="anchored" data-anchor-id="limit-idle-time">Limit Idle Time</h3>
 <p>By default, RStudio allows users to be idle for up to an hour before automatically signing them out. If your users work with sensitive data, you may wish to decrease this.</p>
-<p><em>/etc/rstudio/rserver.conf</em></p>
-<pre><code>auth-timeout-minutes=20</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rserver.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">auth-timeout-minutes</span><span class="ot">=</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>See <a href="../authenticating_users/authorization_timeout.html#inactivity-timeout">Inactivity Timeout</a> for details.</p>
 </section>
 <section id="restrict-system-directory-access" class="level3">
 <h3 class="anchored" data-anchor-id="restrict-system-directory-access">Restrict System Directory Access</h3>
 <p>RStudio can optionally prevent users from browsing to system directories; see <a href="../r_sessions/directory_management.html#restricted-directories">Restricted Directories</a> for details. Enable this feature as follows:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">restrict-directory-view</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">restrict-directory-view</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="disable-external-publishing" class="level3 pro-header">
 <h3 class="pro-header anchored" data-anchor-id="disable-external-publishing">Disable External Publishing</h3>
 <p>RStudio includes support for publishing to several external services, including RPubs and Shinyapps.io. If your users work with sensitive information, you should disable publishing to these services as follows:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">allow-external-publish</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">allow-external-publish</span><span class="ot">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="disable-other-features" class="level3 pro-header">
 <h3 class="pro-header anchored" data-anchor-id="disable-other-features">Disable Other Features</h3>

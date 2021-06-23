@@ -732,6 +732,7 @@
       </div>
     </li>
   </ul>
+      <li class="px-0"><hr class="sidebar-divider hi "></li>
       <li class="sidebar-item">
   <a href="../session_user_settings/session_user_settings.html" class="">Session User Settings</a>
 </li>
@@ -789,8 +790,7 @@
 <p>RStudio Workbench has a number of other limits that can be configured. This section describes these limits. Note that these settings are specified in the <code>/etc/rstudio/rsession.conf</code> file (rather than the <code>rserver.conf</code> file previously referenced).</p>
 <section id="disabling-access-to-features" class="level3">
 <h3 class="anchored" data-anchor-id="disabling-access-to-features">Disabling Access to Features</h3>
-<p>Besides the limits on package installation and CRAN repository editing described in the previous section there are a number of other limits that can be specified. The following describes all of the options that can be used to limit features.</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
+<p>Besides the limits on package installation and CRAN repository editing described in the previous section there are a number of other limits that can be specified in <code>/etc/rstudio/rsession.conf</code>. The following describes all of the options that can be used in <code>rsession.conf</code> to limit features.</p>
 <dl>
 <dt><code>allow-vcs</code></dt>
 <dd><p>Allow access to Git and SVN version control features.</p>
@@ -832,15 +832,15 @@
 <section id="maximum-file-upload-size" class="level3">
 <h3 class="anchored" data-anchor-id="maximum-file-upload-size">Maximum File Upload Size</h3>
 <p>You can limit the maximum size of a file upload by using the <code>limit-file-upload-size-mb</code> setting. For example, the following limits file uploads to 100MB:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">limit-file-upload-size-mb</span><span class="ot">=</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">limit-file-upload-size-mb</span><span class="ot">=</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The default behavior is no limit on the size of file uploads.</p>
 </section>
 <section id="cpu-time-per-computation" class="level3">
 <h3 class="anchored" data-anchor-id="cpu-time-per-computation">CPU Time per Computation</h3>
 <p>If you want to prevent runaway computations that consume 100% of the CPU you can set the maximum number of minutes to allow top-level R computations to run for using the <code>limit-cpu-time-minutes</code> setting. For example:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">limit-cpu-time-minutes</span><span class="ot">=</span><span class="dv">30</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">limit-cpu-time-minutes</span><span class="ot">=</span><span class="dv">30</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This specifies that no top level computation entered at the R console should run for more than 30 minutes. This constraint is implemented by calling the R <code>setTimeLimit</code> function immediately prior to handing off console commands to R. As a result it is possible for a particular script to override this behavior if it knows that it may exceed the threshold. This would be done as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setTimeLimit</span>(<span class="at">cpu =</span> <span class="cn">Inf</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Long running R code here...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -848,8 +848,8 @@
 <section id="xfs-disk-quotas" class="level3">
 <h3 class="anchored" data-anchor-id="xfs-disk-quotas">XFS Disk Quotas</h3>
 <p>If your system uses the XFS file system (<a href="http://en.wikipedia.org/wiki/XFS">http://en.wikipedia.org/wiki/XFS</a>) then RStudio Workbench can be configured to notify users when they come close to or exceed their disk quota. You can enable this using the <code>limit-xfs-disk-quota</code> setting. For example:</p>
-<p><em>/etc/rstudio/rsession.conf</em></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">limit-xfs-disk-quota</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ini code-with-copy"><code class="sourceCode ini"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /etc/rstudio/rsession.conf</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">limit-xfs-disk-quota</span><span class="ot">=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The user’s XFS disk quota will be checked when the RStudio IDE loads and a warning message will be displayed if they are near to or over their quota.</p>
 <!-- -->
 </section>
