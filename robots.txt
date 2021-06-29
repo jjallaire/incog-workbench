@@ -1,1 +1,1 @@
-Sitemap: https://www.incog-workbench.com/sitemap.xml
+Sitemap: https://pommevilla.github.io/incog-workbench/sitemap.xml
