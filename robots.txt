@@ -1,1 +1,1 @@
-Sitemap: https://docs.rstudio.com/ide/server-pro/sitemap.xml
+Sitemap: https://pommevilla.github.io/incog-workbench/sitemap.xml
